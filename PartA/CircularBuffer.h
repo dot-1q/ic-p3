@@ -8,7 +8,6 @@ class CircularBuffer
         std::unique_ptr<char[]> data;
         int head = 0;
         int tail = 0;
-        int count = 0;
         int size;
 
     public:
@@ -17,6 +16,4 @@ class CircularBuffer
         void resetBuffer();
         char getChar();
         int bufferSize();
-        bool isEmpty();
-        bool isFull();
 };

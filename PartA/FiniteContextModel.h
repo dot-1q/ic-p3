@@ -1,4 +1,5 @@
 #pragma once
+#include "CircularBuffer.h"
 #include <fstream>
 #include <map>
 
