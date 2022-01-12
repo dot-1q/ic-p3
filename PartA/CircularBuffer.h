@@ -12,7 +12,7 @@ class CircularBuffer
         int size;
 
     public:
-        CircularBuffer(int size) : data(std::unique_ptr<char []>(new char[size])), size(size){};
+        CircularBuffer(int size) : data(std::unique_ptr<char []>(std::make_unique<char[]>(size))), size(size){};
         void putChar(char character);
         void resetBuffer();
         char getChar();
