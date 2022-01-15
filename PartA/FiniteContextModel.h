@@ -7,11 +7,13 @@ class FiniteContextModel
 {
     int k;
     int alpha;
-    std::map<std::string, int> context_map;
-    std::ifstream sourceFile;
+    std::map<std::string, std::map<char,int>> context_map;
+    std::ifstream source_file;
     
     public:
         FiniteContextModel(int k, int alpha, const std::string filename);
-        int occurence_map();
+        int occurenceMap();
+        void printOccurenceMap();
     private:
+        int charToLetter(char &character);
 };

@@ -5,6 +5,7 @@ int main(void)
 {
     FiniteContextModel fcm = FiniteContextModel(5,0,"Os_Maias.txt");
 
-    fcm.occurence_map();
+    fcm.occurenceMap();
+    fcm.printOccurenceMap();
     return 0;
 }
