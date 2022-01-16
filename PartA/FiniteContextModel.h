@@ -14,6 +14,7 @@ class FiniteContextModel
         FiniteContextModel(int k, int alpha, const std::string filename);
         int occurenceMap();
         void printOccurenceMap();
+        double calculateEntropy();
     private:
-        int charToLetter(char &character);
+        int isValidChar(char &character);
 };

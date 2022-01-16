@@ -19,14 +19,13 @@ int FiniteContextModel::occurenceMap()
     // Buffer circular que irá conter o contexto e o próximo 
     // caracter a ser analisado
     CircularBuffer buffer(this->k + 1);
-
     char text_character;
 
     // Fill the context buffer
     for(int i=0; i<this->k;)
     {
         this->source_file.get(text_character);
-        if (charToLetter(text_character)) 
+        if (isValidChar(text_character)) 
         {
             buffer.putChar(text_character);
             i++;
@@ -35,7 +34,7 @@ int FiniteContextModel::occurenceMap()
 
     while(this->source_file.get(text_character))
     {
-        if(charToLetter(text_character))
+        if(isValidChar(text_character))
         {
             buffer.putChar(text_character);
             std::string context_string = buffer.readBuffer();
@@ -61,7 +60,6 @@ int FiniteContextModel::occurenceMap()
                     string_next_character.insert(std::make_pair(buffer.getLast(),1));
                     this->context_map[context_string] = string_next_character;
                 }
-
             }
             // Caso contrário, criamos um novo mapa com o par <string,<char,nvezes>> associado à string
             else
@@ -73,6 +71,11 @@ int FiniteContextModel::occurenceMap()
         }
     }
 
+    return 0;
+}
+
+double FiniteContextModel::calculateEntropy()
+{
     return 0;
 }
 
@@ -89,8 +92,9 @@ void FiniteContextModel::printOccurenceMap()
     }
 }
 
-int FiniteContextModel::charToLetter(char &character)
+int FiniteContextModel::isValidChar(char &character)
 {
+    // Caso seja um character alphanumérico ou um "espaço", o mesmo é válido
     if(std::isalnum(character) || character==' ')
         return 1;
     else
