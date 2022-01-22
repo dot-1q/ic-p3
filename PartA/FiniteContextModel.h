@@ -7,7 +7,7 @@ class FiniteContextModel
 {
     int k;
     int alpha;
-    double totais;
+    int totais;
     std::map<std::string, std::map<char,int>> context_map;
     std::map<std::string, int> total_map;
     std::ifstream source_file;
