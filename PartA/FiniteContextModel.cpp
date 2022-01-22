@@ -6,6 +6,8 @@
 #include <locale>
 #include <ostream>
 #include <utility>
+#include <numeric>
+#include <bits/stdc++.h>
 
 FiniteContextModel::FiniteContextModel(int k, int alpha, std::string filename)
 {
@@ -21,6 +23,7 @@ int FiniteContextModel::occurenceMap()
     CircularBuffer buffer(this->k + 1);
     char text_character;
 
+    
     // Fill the context buffer
     for(int i=0; i<this->k;)
     {
@@ -70,20 +73,44 @@ int FiniteContextModel::occurenceMap()
             }
         }
     }
-
     return 0;
 }
 
 double FiniteContextModel::calculateEntropy()
 {
-    return 0;
+    return contextEntropy(this->context_map);
 }
+
+
+double FiniteContextModel::contextEntropy(std::map<std::string, std::map<char,int>> context_map) //calcula o total de ocurrencias de todas a letras de um dado contexto
+{   
+    std::map<std::string, double> entropy;
+    for(auto context_string_iterator=this->context_map.cbegin(); context_string_iterator!=this->context_map.cend(); context_string_iterator++)
+    {
+        double entropia_contexto;
+        double res = std::accumulate(context_string_iterator->second.cbegin(),context_string_iterator->second.cend(),0, [] ( int acc, std::pair<char, int> p ) { return ( acc + p.second ); }); //calcula o total de letras do contexto
+        for(auto char_counter_iterator=context_string_iterator->second.cbegin(); char_counter_iterator!=context_string_iterator->second.cend(); char_counter_iterator++)
+        {
+            
+            entropia_contexto =+ (char_counter_iterator->second/res) * std::log(char_counter_iterator->second/res); //soma p(i)*log(p(i))
+        }
+        entropy.insert(std::make_pair(context_string_iterator->first, entropia_contexto*(res/totais))); //faz um mapa <contexto, entropia>
+    }
+    double final = std::accumulate(std::begin(entropy),std::end(entropy),0, [] ( double acc, std::pair<std::string, double> p ) { return ( acc + p.second ); });
+    
+
+    return final;
+
+}
+
 
 void FiniteContextModel::printOccurenceMap()
 {
     for(auto context_string_iterator=this->context_map.cbegin(); context_string_iterator!=this->context_map.cend(); context_string_iterator++)
     {
         std::cout << "|" << context_string_iterator->first << "| ";
+        double res = std::accumulate(context_string_iterator->second.cbegin(),context_string_iterator->second.cend(),0, [] ( int acc, std::pair<char, int> p ) { return ( acc + p.second ); });
+        this->totais =+ res; // total de totais
         for(auto char_counter_iterator=context_string_iterator->second.cbegin(); char_counter_iterator!=context_string_iterator->second.cend(); char_counter_iterator++)
         {
             std::cout << "letter: " << char_counter_iterator->first << " : " << char_counter_iterator->second << " | ";

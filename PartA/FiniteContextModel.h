@@ -7,7 +7,9 @@ class FiniteContextModel
 {
     int k;
     int alpha;
+    double totais;
     std::map<std::string, std::map<char,int>> context_map;
+    std::map<std::string, int> total_map;
     std::ifstream source_file;
     
     public:
@@ -15,6 +17,7 @@ class FiniteContextModel
         int occurenceMap();
         void printOccurenceMap();
         double calculateEntropy();
+        double contextEntropy(std::map<std::string, std::map<char,int>> context_map);
     private:
         int isValidChar(char &character);
 };
