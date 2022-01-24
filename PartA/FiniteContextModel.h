@@ -6,14 +6,14 @@
 class FiniteContextModel
 {
     int k;
-    int alpha;
+    float alpha;
     int totais;
     std::map<std::string, std::map<char,int>> context_map;
     std::map<std::string, int> total_map;
     std::ifstream source_file;
     
     public:
-        FiniteContextModel(int k, int alpha, const std::string filename);
+        FiniteContextModel(int k, float alpha, const std::string filename);
         int occurenceMap();
         void printOccurenceMap();
         double calculateEntropy();

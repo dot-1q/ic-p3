@@ -11,7 +11,7 @@
 #include <math.h>
 
 
-FiniteContextModel::FiniteContextModel(int k, int alpha, std::string filename)
+FiniteContextModel::FiniteContextModel(int k, float alpha, std::string filename)
 {
     this->k = k;
     this->alpha = alpha;
@@ -24,7 +24,7 @@ int FiniteContextModel::occurenceMap()
     // caracter a ser analisado
     CircularBuffer buffer(this->k + 1);
     char text_character;
-
+    int caracters;
     
     // Fill the context buffer
     for(int i=0; i<this->k;)
@@ -41,6 +41,7 @@ int FiniteContextModel::occurenceMap()
     {
         if(isValidChar(text_character))
         {
+            caracters++;
             buffer.putChar(text_character);
             std::string context_string = buffer.readBuffer();
             // std::cout << context_string << "+" << buffer.getLast() << std::endl;
@@ -75,6 +76,8 @@ int FiniteContextModel::occurenceMap()
             }
         }
     }
+    this->totais = caracters;
+    std::cout<< "total caracters:  " <<caracters << std::endl;
     return 0;
 }
 
@@ -88,16 +91,16 @@ double FiniteContextModel::contextEntropy(std::map<std::string, std::map<char,in
 {   
     std::map<std::string, double> entropy;
     double entropia_contexto;
-    int tots = 0;
     for(auto context_string_iterator=this->context_map.cbegin(); context_string_iterator!=this->context_map.cend(); context_string_iterator++)
     {
-        double res = std::accumulate(context_string_iterator->second.cbegin(),context_string_iterator->second.cend(),0, [] ( int acc, std::pair<char, int> p ) { return ( acc + p.second ); }); //calcula o total de letras do contexto
-        tots += res;   
+        double res = std::accumulate(context_string_iterator->second.cbegin(),context_string_iterator->second.cend(),0, [] ( int acc, std::pair<char, int> p ) { return ( acc + p.second ); }); //calcula o total de letras do contexto   
         entropia_contexto = 0;
         for(auto char_counter_iterator=context_string_iterator->second.cbegin(); char_counter_iterator!=context_string_iterator->second.cend(); char_counter_iterator++)
         {
             double i = (char_counter_iterator->second);
-            entropia_contexto += log10(i/res) * (i/res); //soma p(i)*log(p(i))
+            double prob = (i+alpha)/(res+(alpha*22));
+            entropia_contexto += log2(prob) * (prob); //soma p(i)*log(p(i))
+            std::cout << "contexto: " << context_string_iterator->first << " entropia: "<< entropia_contexto <<  std::endl;
             
         }
         entropy.insert(std::make_pair(context_string_iterator->first, -(entropia_contexto*(res/this->totais)))); //faz um mapa <contexto, entropia>
@@ -116,8 +119,6 @@ void FiniteContextModel::printOccurenceMap()
     for(auto context_string_iterator=this->context_map.cbegin(); context_string_iterator!=this->context_map.cend(); context_string_iterator++)
     {
         std::cout << "|" << context_string_iterator->first << "| ";
-        double res = std::accumulate(context_string_iterator->second.cbegin(),context_string_iterator->second.cend(),0, [] ( int acc, std::pair<char, int> p ) { return ( acc + p.second ); });
-        this->totais += res; // total de totais
         for(auto char_counter_iterator=context_string_iterator->second.cbegin(); char_counter_iterator!=context_string_iterator->second.cend(); char_counter_iterator++)
         {
             std::cout << "letter: " << char_counter_iterator->first << " : " << char_counter_iterator->second << " | ";
