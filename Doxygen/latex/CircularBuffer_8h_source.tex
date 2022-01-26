@@ -1,0 +1,25 @@
+\hypertarget{CircularBuffer_8h_source}{}\doxysection{Circular\+Buffer.\+h}
+\label{CircularBuffer_8h_source}\index{PartA/CircularBuffer.h@{PartA/CircularBuffer.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{classCircularBuffer}{CircularBuffer}} }
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11     \textcolor{keyword}{private}:}
+\DoxyCodeLine{12         std::unique\_ptr<char[]> data;   }
+\DoxyCodeLine{13         \textcolor{keywordtype}{int} head = 0;                   }
+\DoxyCodeLine{14         \textcolor{keywordtype}{int} tail = 0;                   }
+\DoxyCodeLine{15         \textcolor{keywordtype}{int} size;                       }
+\DoxyCodeLine{17     \textcolor{keyword}{public}:}
+\DoxyCodeLine{23         \mbox{\hyperlink{classCircularBuffer_a8849e18b35e8d144a59906268812f204}{CircularBuffer}}(\textcolor{keywordtype}{int} size) : data(std::unique\_ptr<char []>(std::make\_unique<char[]>(size))), size(size)\{\};}
+\DoxyCodeLine{29         \textcolor{keywordtype}{void} \mbox{\hyperlink{classCircularBuffer_a0f05d815b2cc7cc5e8983b144d65558c}{putChar}}(\textcolor{keywordtype}{char} character);}
+\DoxyCodeLine{34         \textcolor{keywordtype}{void} \mbox{\hyperlink{classCircularBuffer_a59eaa07643919c06e404cc8ec1079b61}{resetBuffer}}();}
+\DoxyCodeLine{39         \textcolor{keywordtype}{char} \mbox{\hyperlink{classCircularBuffer_ac13379d2598d248e4bb60e3fe3285388}{getLast}}();}
+\DoxyCodeLine{46         std::string \mbox{\hyperlink{classCircularBuffer_a38665710288d2f8db0495e213d80c9d9}{readBuffer}}();}
+\DoxyCodeLine{52         \textcolor{keywordtype}{int} \mbox{\hyperlink{classCircularBuffer_a8ee093572ae237c6223c1a1b5f751c51}{bufferSize}}();}
+\DoxyCodeLine{53 \};}
+
+\end{DoxyCode}

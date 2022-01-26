@@ -1,0 +1,88 @@
+\hypertarget{classFiniteContextModel}{}\doxysection{Finite\+Context\+Model Class Reference}
+\label{classFiniteContextModel}\index{FiniteContextModel@{FiniteContextModel}}
+
+
+Finite context Model class used to collect high-\/order statistical information of an information source, assigning a probability estimate to the symbols of the alphabet, according to a conditioning context computed over a finite and fixed number of past outcomes.  
+
+
+
+
+{\ttfamily \#include $<$Finite\+Context\+Model.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classFiniteContextModel_a91b69988066213ce2ebb03683dd390f1}{Finite\+Context\+Model}} (int k, float alpha, const std\+::string filename)
+\begin{DoxyCompactList}\small\item\em Construct a new Finite Context Model object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFiniteContextModel_a2bf414f8239cf8819f0fa0610185069c}\label{classFiniteContextModel_a2bf414f8239cf8819f0fa0610185069c}} 
+void {\bfseries occurence\+Map} ()
+\begin{DoxyCompactList}\small\item\em Calculates which letters, and how many times, they procede each context. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFiniteContextModel_ad3f63a05ba6446d1a55dacdee56a99ee}{print\+Occurence\+Map}} ()
+\begin{DoxyCompactList}\small\item\em Print the result of \mbox{\hyperlink{classFiniteContextModel_a2bf414f8239cf8819f0fa0610185069c}{occurence\+Map()}}. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classFiniteContextModel_aa44ee07bd92fd823b4cbe383f321fac9}{calculate\+Entropy}} ()
+\begin{DoxyCompactList}\small\item\em Calculate the entropy of the model. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Finite context Model class used to collect high-\/order statistical information of an information source, assigning a probability estimate to the symbols of the alphabet, according to a conditioning context computed over a finite and fixed number of past outcomes. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classFiniteContextModel_a91b69988066213ce2ebb03683dd390f1}\label{classFiniteContextModel_a91b69988066213ce2ebb03683dd390f1}} 
+\index{FiniteContextModel@{FiniteContextModel}!FiniteContextModel@{FiniteContextModel}}
+\index{FiniteContextModel@{FiniteContextModel}!FiniteContextModel@{FiniteContextModel}}
+\doxysubsubsection{\texorpdfstring{FiniteContextModel()}{FiniteContextModel()}}
+{\footnotesize\ttfamily Finite\+Context\+Model\+::\+Finite\+Context\+Model (\begin{DoxyParamCaption}\item[{int}]{k,  }\item[{float}]{alpha,  }\item[{const std\+::string}]{filename }\end{DoxyParamCaption})}
+
+
+
+Construct a new Finite Context Model object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em k} & The order of the model. \\
+\hline
+{\em alpha} & The smoothing parameter. \\
+\hline
+{\em filename} & The name of the text file to be analyzed. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFiniteContextModel_aa44ee07bd92fd823b4cbe383f321fac9}\label{classFiniteContextModel_aa44ee07bd92fd823b4cbe383f321fac9}} 
+\index{FiniteContextModel@{FiniteContextModel}!calculateEntropy@{calculateEntropy}}
+\index{calculateEntropy@{calculateEntropy}!FiniteContextModel@{FiniteContextModel}}
+\doxysubsubsection{\texorpdfstring{calculateEntropy()}{calculateEntropy()}}
+{\footnotesize\ttfamily double Finite\+Context\+Model\+::calculate\+Entropy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Calculate the entropy of the model. 
+
+\begin{DoxyReturn}{Returns}
+double The Entropy value of the model.
+\end{DoxyReturn}
+Calculates as defined by\+: Entropy = sum(\+Hc $\ast$ Pc). Pc = Probability of the context/sub-\/model. Hc = Entropy of the context/sub-\/model. Taking into consideration the alpha and aphabet size.
+
+\begin{DoxyReturn}{Returns}
+double Has to be between 0 and log2(27). 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classFiniteContextModel_ad3f63a05ba6446d1a55dacdee56a99ee}\label{classFiniteContextModel_ad3f63a05ba6446d1a55dacdee56a99ee}} 
+\index{FiniteContextModel@{FiniteContextModel}!printOccurenceMap@{printOccurenceMap}}
+\index{printOccurenceMap@{printOccurenceMap}!FiniteContextModel@{FiniteContextModel}}
+\doxysubsubsection{\texorpdfstring{printOccurenceMap()}{printOccurenceMap()}}
+{\footnotesize\ttfamily void Finite\+Context\+Model\+::print\+Occurence\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Print the result of \mbox{\hyperlink{classFiniteContextModel_a2bf414f8239cf8819f0fa0610185069c}{occurence\+Map()}}. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classFiniteContextModel_a2bf414f8239cf8819f0fa0610185069c}{occurence\+Map()}}
+\end{DoxySeeAlso}
+Creates an iterator that runs through all the contexts inside the context\+\_\+map. Then another one is used to print each letter proceding said context and their count. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Part\+A/Finite\+Context\+Model.\+h\item 
+Part\+A/Finite\+Context\+Model.\+cpp\end{DoxyCompactItemize}

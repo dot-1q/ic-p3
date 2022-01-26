@@ -18,13 +18,13 @@ FiniteContextModel::FiniteContextModel(int k, float alpha, std::string filename)
     this->source_file.open(filename);
 }
 
-int FiniteContextModel::occurenceMap()
+void FiniteContextModel::occurenceMap()
 {
     // Buffer circular que irá conter o contexto e o próximo 
     // caracter a ser analisado
     CircularBuffer buffer(this->k + 1);
     char text_character;
-    int caracters;
+    int caracters;  
     
     // Fill the context buffer
     for(int i=0; i<this->k;)
@@ -78,16 +78,18 @@ int FiniteContextModel::occurenceMap()
     }
     this->totais = caracters;
     std::cout<< "total caracters:  " <<caracters << std::endl;
-    return 0;
 }
 
+
+/**
+ * Calculates as defined by: Entropy = sum(Hc * Pc).
+ * Pc = Probability of the context/sub-model.
+ * Hc = Entropy of the context/sub-model.
+ * Taking into consideration the alpha and aphabet size.
+ * 
+ * @return double Has to be between 0 and log2(27).
+ */
 double FiniteContextModel::calculateEntropy()
-{
-    return contextEntropy(this->context_map);
-}
-
-
-double FiniteContextModel::contextEntropy(std::map<std::string, std::map<char,int>> context_map) //calcula o total de ocurrencias de todas a letras de um dado contexto
 {   
     std::map<std::string, double> entropy;
     double entropia_contexto;
@@ -113,6 +115,10 @@ double FiniteContextModel::contextEntropy(std::map<std::string, std::map<char,in
 
 }
 
+/**
+ * Creates an iterator that runs through all the contexts inside the context_map. Then another one is used to print each letter proceding said context and their count.
+ * 
+ */
 
 void FiniteContextModel::printOccurenceMap()
 {
@@ -127,6 +133,11 @@ void FiniteContextModel::printOccurenceMap()
     }
 }
 
+/**
+ * Checks if  input Char is alphanumerical or space.
+ *  
+ * @return int Returns 1 if valid.
+ */
 int FiniteContextModel::isValidChar(char &character)
 {
     // Caso seja um character alphanumérico ou um "espaço", o mesmo é válido
