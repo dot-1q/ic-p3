@@ -28,7 +28,7 @@ Lang::Lang(int k, int alpha, string refText, string analysisText){
 map<string, map<char,int>> Lang::getRefTextModel(){
     FiniteContextModel refTxtModel = FiniteContextModel(this->k, this->alpha, this->refText);
     refTxtModel.occurenceMap();
-    
+
     return refTxtModel.getContextMap();
 }
 
