@@ -5,7 +5,14 @@
 #include <math.h>
 using namespace std;
 
-// Public constructor of Lang class
+/**
+ * @brief Construct a new Lang:: Lang object
+ * 
+ * @param k 
+ * @param alpha 
+ * @param refText 
+ * @param analysisText 
+ */
 Lang::Lang(int k, int alpha, string refText, string analysisText){
     this->k = k;
     this->alpha = alpha;
@@ -13,7 +20,11 @@ Lang::Lang(int k, int alpha, string refText, string analysisText){
     this->analysisText = analysisText;
 }
 
-// To get the reference text finite context model
+/**
+ * @brief To get the reference text context map
+ * 
+ * @return map<string, map<char,int>> 
+ */
 map<string, map<char,int>> Lang::getRefTextModel(){
     FiniteContextModel refTxtModel = FiniteContextModel(this->k, this->alpha, this->refText);
     refTxtModel.occurenceMap();
@@ -21,7 +32,11 @@ map<string, map<char,int>> Lang::getRefTextModel(){
     return refTxtModel.getContextMap();
 }
 
-// To get the analysis text finite context model
+/**
+ * @brief To get the analysis text context map
+ * 
+ * @return map<string, map<char,int>> 
+ */
 map<string, map<char,int>> Lang::getAnalysisTextModel(){
     FiniteContextModel analysisTxtModel = FiniteContextModel(this->k, this->alpha, this->analysisText);
     analysisTxtModel.occurenceMap();
@@ -29,7 +44,13 @@ map<string, map<char,int>> Lang::getAnalysisTextModel(){
     return analysisTxtModel.getContextMap();
 }
 
-// To calculate the number of bits needed to represent the analysis text based on the reference text
+/**
+ * @brief To calculate the number of bits needed to represent the analysis text based on the reference text
+ * 
+ * @param refTxtModel 
+ * @param analysisTxtModel 
+ * @return double 
+ */
 double Lang::calculateBits(map<string, map<char,int>> refTxtModel, map<string, map<char,int>> analysisTxtModel){
     double bits = 0;
 
