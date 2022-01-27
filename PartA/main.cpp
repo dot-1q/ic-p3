@@ -6,8 +6,7 @@ int main(void)
     FiniteContextModel fcm = FiniteContextModel(5,0.3,"Os_Maias.txt"); //Os_Maias.txt
     fcm.occurenceMap();
     //fcm.printOccurenceMap();
-    std::cout << "\n";
-    std::cout << "entropy of the model :" << fcm.calculateEntropy() << "\n";
-    std::cout << "\n";
+    double entropy = fcm.calculateEntropy();
+    std::cout << "Entropy of the file: " << entropy << std::endl;
     return 0;
 }

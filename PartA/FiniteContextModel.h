@@ -7,11 +7,11 @@
   */
 class FiniteContextModel
 {
-    int k;                                                  /*!< Order of the model */
-    float alpha;                                            /*!< Smoothing parameter */
-    int totais;                                             /*!< Sum of all letters proceding all contexts */
-    std::map<std::string, std::map<char,int>> context_map;  /*!< Map that contains all sub-models */
-    std::ifstream source_file;                              /*!< Stream that contains the name of the file to be analyzed */
+    int k;                                                                  /*!< Order of the model */
+    float alpha;                                                            /*!< Smoothing parameter */
+    int totais;                                                             /*!< Sum of all letters proceding all contexts */
+    std::map<std::string, std::map<char,int>> context_map;                  /*!< Map that contains all sub-models */
+    std::ifstream source_file;                                              /*!< Stream that contains the name of the file to be analyzed */
 
     public:
         /**
@@ -40,6 +40,12 @@ class FiniteContextModel
          * @return double The Entropy value of the model.
          */
         double calculateEntropy();
+        /**
+         * @brief Gets the occurrence map. 
+         * 
+         * @return std::map<std::string, std::map<char,int>> The occurrance map.
+         */
+        std::map<std::string, std::map<char,int>> getContextMap();
     private:
         /**
          * @brief Checks if the Character is valid

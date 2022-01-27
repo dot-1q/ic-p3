@@ -77,7 +77,6 @@ void FiniteContextModel::occurenceMap()
         }
     }
     this->totais = caracters;
-    std::cout<< "total caracters:  " <<caracters << std::endl;
 }
 
 
@@ -93,6 +92,8 @@ double FiniteContextModel::calculateEntropy()
 {   
     std::map<std::string, double> entropy;
     double entropia_contexto;
+    std::map<char, double> probsMap;
+
     for(auto context_string_iterator=this->context_map.cbegin(); context_string_iterator!=this->context_map.cend(); context_string_iterator++)
     {
         double res = std::accumulate(context_string_iterator->second.cbegin(),context_string_iterator->second.cend(),0, [] ( int acc, std::pair<char, int> p ) { return ( acc + p.second ); }); //calcula o total de letras do contexto   
@@ -100,19 +101,16 @@ double FiniteContextModel::calculateEntropy()
         for(auto char_counter_iterator=context_string_iterator->second.cbegin(); char_counter_iterator!=context_string_iterator->second.cend(); char_counter_iterator++)
         {
             double i = (char_counter_iterator->second);
-            double prob = (i+alpha)/(res+(alpha*22));
+            double prob = (i+alpha)/(res+(alpha*27));
             entropia_contexto += log2(prob) * (prob); //soma p(i)*log(p(i))
-            std::cout << "contexto: " << context_string_iterator->first << " entropia: "<< entropia_contexto <<  std::endl;
-            
+            std::cout << "contexto: " << context_string_iterator->first << " | entropia: "<< entropia_contexto <<  std::endl;
         }
         entropy.insert(std::make_pair(context_string_iterator->first, -(entropia_contexto*(res/this->totais)))); //faz um mapa <contexto, entropia>
     }
     double final = std::accumulate(std::begin(entropy),std::end(entropy),0.0, [] ( double acc, std::pair<std::string, double> p ) { return ( acc + p.second ); });
-    std::cout << "\n";
-    std::cout << this->totais << " totais";
-    std::cout << "\n";
-    return final;
+    std::cout << "\nCaracteres totais: " << this->totais << "\n";
 
+    return final;
 }
 
 /**
@@ -145,4 +143,14 @@ int FiniteContextModel::isValidChar(char &character)
         return 1;
     else
         return 0;
+}
+
+/**
+ * Gets the text occurrance map.
+ *  
+ * @return std::map<std::string, std::map<char,int>> Returns the occurrence map.
+ */
+std::map<std::string, std::map<char,int>> FiniteContextModel::getContextMap()
+{
+    return this->context_map;
 }
