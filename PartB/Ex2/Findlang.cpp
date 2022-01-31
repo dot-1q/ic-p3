@@ -12,7 +12,7 @@ using namespace std;
  * @param analysisText 
  */
 
-Findlang::Findlang(int k, int alpha, vector<string> refTexts, string analysisText){
+Findlang::Findlang(int k, float alpha, vector<string> refTexts, string analysisText){
     cout << "Starting to guess the language from the analysis text..." << endl;
     this->k = k;
     this->alpha = alpha;

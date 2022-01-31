@@ -13,7 +13,7 @@ using namespace std;
  * @param refText 
  * @param analysisText 
  */
-Lang::Lang(int k, int alpha, string refText, string analysisText){
+Lang::Lang(int k, float alpha, string refText, string analysisText){
     this->k = k;
     this->alpha = alpha;
     this->refText = refText;

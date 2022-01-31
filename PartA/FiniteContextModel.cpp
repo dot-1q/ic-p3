@@ -103,12 +103,12 @@ double FiniteContextModel::calculateEntropy()
             double i = (char_counter_iterator->second);
             double prob = (i+alpha)/(res+(alpha*27));
             entropia_contexto += log2(prob) * (prob); //soma p(i)*log(p(i))
-            std::cout << "contexto: " << context_string_iterator->first << " | entropia: "<< entropia_contexto <<  std::endl;
+            //std::cout << "contexto: " << context_string_iterator->first << " | entropia: "<< entropia_contexto <<  std::endl;
         }
         entropy.insert(std::make_pair(context_string_iterator->first, -(entropia_contexto*(res/this->totais)))); //faz um mapa <contexto, entropia>
     }
     double final = std::accumulate(std::begin(entropy),std::end(entropy),0.0, [] ( double acc, std::pair<std::string, double> p ) { return ( acc + p.second ); });
-    std::cout << "\nCaracteres totais: " << this->totais << "\n";
+    //std::cout << "\nCaracteres totais: " << this->totais << "\n";
 
     return final;
 }

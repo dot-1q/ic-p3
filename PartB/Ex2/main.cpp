@@ -11,7 +11,9 @@ int main(void){
                             //    "Textos/GR_Greek_grek_EP7.utf8", "Textos/NL_Dutch_latn_EP7.utf8",
                             //    "Textos/SE_Swedish_latn_EP7.utf8", "Textos/PL_Polish_latn_EP7.utf8"};
 
-    Findlang findlang = Findlang(5, 0, refTexts, "Textos/Don_Quijote.txt");
+    string fileName = "Textos/Don_Quijote.txt";
+    Findlang findlang = Findlang(5, 0.3f, refTexts, fileName);
+    std::cout << "Finding what language " << fileName << " is. " << std::endl; 
 
     vector<map<string, map<char,int>>> refTextsModels = findlang.getRefTextsModels();
 
