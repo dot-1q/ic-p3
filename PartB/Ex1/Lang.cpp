@@ -68,8 +68,7 @@ double Lang::calculateBits(map<string, map<char,int>> refTxtModel, map<string, m
                 if (submodelsRefTxt.count(it_submodels->first)){
                     double occurrance = submodelsRefTxt.at(it_submodels->first);
                     double prob = (occurrance + this->alpha) / (res + (this->alpha * 27));
-
-                    bits = bits + ( (log(prob) / log(2)) * -1 );
+                    bits += log2(prob);
                 }
             }
         }
