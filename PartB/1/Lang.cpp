@@ -86,3 +86,8 @@ double Lang::calculateBits()
     // Retornar o número de bits por símbolo
     return (bits/27);
 }
+
+std::map<std::string, std::map<char,int>> Lang::getRefTextModel()
+{
+    return this->ref_text_map;
+}

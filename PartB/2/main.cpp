@@ -11,22 +11,11 @@ int main(void){
                             //    "Textos/GR_Greek_grek_EP7.utf8", "Textos/NL_Dutch_latn_EP7.utf8",
                             //    "Textos/SE_Swedish_latn_EP7.utf8", "Textos/PL_Polish_latn_EP7.utf8"};
 
-    string fileName = "Textos/Don_Quijote.txt";
+    string fileName = "Textos/Arséne_Lupin.txt";
     Findlang findlang = Findlang(5, 0.3f, refTexts, fileName);
     std::cout << "Finding what language " << fileName << " is. " << std::endl; 
 
     vector<map<string, map<char,int>>> refTextsModels = findlang.getRefTextsModels();
-
-    // DEBUG refTextsModels --------
-    // for(int i = 0; i < refTextsModels.size(); i++){
-    //     cout << i << " REF TEXT MODEL:" << endl;
-    //     for(auto it = refTextsModels.at(i).cbegin(); it != refTextsModels.at(i).cend(); it++){
-    //         for(auto it2 = it->second.cbegin(); it2 != it->second.cend(); it2++){
-    //             cout << it->first << " | " << it2->first << " | " << it2->second << endl;
-    //         }
-    //     }
-    //     cout << "----------------------------------------------------" << endl;
-    // }
 
     map<string, map<char,int>> analysisTextModel = findlang.getAnalysisTextModel();
     

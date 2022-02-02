@@ -12,6 +12,5 @@ class Lang{
     public:
         Lang(int k, float alpha, std::string refText, std::string analysisText);
         std::map<std::string, std::map<char,int>> getRefTextModel();
-        std::map<std::string, std::map<char,int>> getAnalysisTextModel();
         double calculateBits(); 
 };

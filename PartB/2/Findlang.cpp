@@ -46,10 +46,9 @@ vector<map<string, map<char,int>>> Findlang::getRefTextsModels(){
  * @return map<string, map<char,int>> 
  */
 map<string, map<char,int>> Findlang::getAnalysisTextModel(){
-    Lang lang = Lang(this->k, this->alpha, this->refTexts.at(0), this->analysisText);
-        
     cout << "Proccess: 66%..." << endl;
-    return lang.getAnalysisTextModel();
+    FiniteContextModel fcm = FiniteContextModel(this->k,this->alpha,this->analysisText);
+    return fcm.getContextMap(fcm);
 }
 
 /**
@@ -59,7 +58,7 @@ map<string, map<char,int>> Findlang::getAnalysisTextModel(){
  * @param analysisTextModel 
  * @return string 
  */
-string Findlang::guessLanguage(vector<map<string, map<char,int>>> refTextsModels, map<string, map<char,int>> analysisTextModel){    
+string Findlang::guessLanguage(vector<map<string, map<char,int>>> &refTextsModels, map<string, map<char,int>> &analysisTextModel){    
     cout << "Proccess: 90%..." << endl;
     cout << "Going to guess..."<< endl;
     cout << "--------------------------------------" << endl;
@@ -69,7 +68,7 @@ string Findlang::guessLanguage(vector<map<string, map<char,int>>> refTextsModels
 
     for(int i = 0; i < refTextsModels.size(); i++){
         Lang lang = Lang(this->k, this->alpha, this->refTexts.at(i), this->analysisText);
-        double bits = lang.calculateBits(refTextsModels.at(i), analysisTextModel);
+        double bits = lang.calculateBits();
 
         // DEBUG
         cout << this->refTexts.at(i)  <<": " << bits << endl;
