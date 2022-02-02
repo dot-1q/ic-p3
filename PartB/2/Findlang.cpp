@@ -1,5 +1,5 @@
 #include "Findlang.h"
-#include "../Ex1/Lang.h"
+#include "../1/Lang.h"
 #include <iostream>
 using namespace std;
 

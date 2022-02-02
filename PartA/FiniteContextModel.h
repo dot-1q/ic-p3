@@ -24,10 +24,6 @@ class FiniteContextModel
         FiniteContextModel(int k, float alpha, const std::string filename);
 
         /**
-         * @brief Calculates which letters, and how many times, they procede each context.
-         */
-        void occurenceMap();
-        /**
          * @brief Print the result of occurenceMap().
          * @see occurenceMap()
          * 
@@ -45,13 +41,17 @@ class FiniteContextModel
          * 
          * @return std::map<std::string, std::map<char,int>> The occurrance map.
          */
-        std::map<std::string, std::map<char,int>> getContextMap();
-    private:
+        std::map<std::string, std::map<char,int>> getContextMap(FiniteContextModel &fcm);
         /**
          * @brief Checks if the Character is valid
          * 
          * @param character A char.
          * @return int Wether the Char is valid. 
          */
-        int isValidChar(char &character);
+        static int isValidChar(char &character);
+    private:
+        /**
+         * @brief Calculates which letters, and how many times, they procede each context.
+         */
+        void occurenceMap();
 };

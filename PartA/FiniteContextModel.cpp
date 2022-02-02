@@ -16,6 +16,9 @@ FiniteContextModel::FiniteContextModel(int k, float alpha, std::string filename)
     this->k = k;
     this->alpha = alpha;
     this->source_file.open(filename);
+
+    // Generate the occurance map
+    occurenceMap();
 }
 
 void FiniteContextModel::occurenceMap()
@@ -150,7 +153,7 @@ int FiniteContextModel::isValidChar(char &character)
  *  
  * @return std::map<std::string, std::map<char,int>> Returns the occurrence map.
  */
-std::map<std::string, std::map<char,int>> FiniteContextModel::getContextMap()
+std::map<std::string, std::map<char,int>> FiniteContextModel::getContextMap(FiniteContextModel &fcm)
 {
-    return this->context_map;
+    return fcm.context_map;
 }

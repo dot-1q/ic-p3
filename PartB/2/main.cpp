@@ -1,6 +1,6 @@
 #include <iostream>
 #include "Findlang.h"
-#include "../Ex1/Lang.h"
+#include "../1/Lang.h"
 using namespace std;
 
 int main(void){
