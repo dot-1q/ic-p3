@@ -1,26 +1,37 @@
 #include <iostream>
 #include "Lang.h"
 #include "../../PartA/FiniteContextModel.h"
+#include <sstream>
 using namespace std;
 
-int main(void){
+int main(int argc, char *argv[]){
 
-    std::string filename = "../2/Textos/Memorie_di_un_cacciatore.txt";
+    if (argc == 5){
+        // Conversion to int
+        stringstream toInt(argv[1]);
+        int k = 0;
+        toInt >> k;
 
-    Lang lang  = Lang(4, 0.3f, "../2/Textos/Portugese_latn_EP7.utf8", filename);
-    Lang lang2 = Lang(4, 0.3f, "../2/Textos/French_latn_EP7.utf8", filename);
-    Lang lang3 = Lang(4, 0.3f, "../2/Textos/Spanish_latn_EP7.utf8", filename);
-    Lang lang4 = Lang(4, 0.3f, "../2/Textos/Italian_latn_EP7.utf8", filename);
+        // Conversion to float
+        stringstream toFloat(argv[2]);
+        float alpha = 0;
+        toFloat >> alpha;
 
-    double bits = lang.calculateBits();
-    cout << "Number of bits needed (PT): " << bits << endl;
+        Lang lang  = Lang(k, alpha, argv[3], argv[4]);
 
-    bits = lang2.calculateBits();
-    cout << "Number of bits needed (FR): " << bits << endl;
+        // Conversion to float
+        stringstream toString(argv[3]);
+        string refText;
+        toString >> refText;
 
-    bits = lang3.calculateBits();
-    cout << "Number of bits needed (ES): " << bits << endl;
+        string tmp = refText.substr(22, refText.size());
+        string str = tmp.substr(0, tmp.find("_"));
 
-    bits = lang4.calculateBits();
-    cout << "Number of bits needed (IT): " << bits << endl;
+        double bits = lang.calculateBits();
+        cout << "Number of bits needed (" << str << "): " << bits << endl;
+    }
+    else{
+        cout << "ERROR!\nUsage ./lang [-k-] [-alpha-] [-reference text file path-] [-analysis text file path-]" << endl;
+        exit(1);
+    }
 }

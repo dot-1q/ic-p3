@@ -124,15 +124,23 @@ double FiniteContextModel::calculateEntropy()
 
 void FiniteContextModel::printOccurenceMap()
 {
-    for(auto context_string_iterator=this->context_map.cbegin(); context_string_iterator!=this->context_map.cend(); context_string_iterator++)
-    {
-        std::cout << "|" << context_string_iterator->first << "| ";
-        for(auto char_counter_iterator=context_string_iterator->second.cbegin(); char_counter_iterator!=context_string_iterator->second.cend(); char_counter_iterator++)
+    std::ofstream file ("occurrence_map.txt");
+    
+    if(file.is_open()){
+        for(auto context_string_iterator=this->context_map.cbegin(); context_string_iterator!=this->context_map.cend(); context_string_iterator++)
         {
-            std::cout << "letter: " << char_counter_iterator->first << " : " << char_counter_iterator->second << " | ";
+            file << "|" << context_string_iterator->first << "| ";
+            for(auto char_counter_iterator=context_string_iterator->second.cbegin(); char_counter_iterator!=context_string_iterator->second.cend(); char_counter_iterator++)
+            {
+                file << "letter: " << char_counter_iterator->first << " : " << char_counter_iterator->second << " | ";
+            }
+            file << "\n";
         }
-        std::cout << "\n";
     }
+    else{
+        std::cout << "ERROR!!\nUnable to open file!" << std::endl;
+    }
+    std::cout << "Occurrence map was written to \"occurrence_map.txt\" file" << std::endl;
 }
 
 /**
