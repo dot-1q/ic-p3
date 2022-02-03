@@ -6,12 +6,11 @@
 class Findlang{
     int k;
     float alpha;
-    std::vector<std::string> refTexts;
-    std::string analysisText;
+    std::vector<std::string> referece_texts;
+    std::string filename;
+    //std::vector<std::map<std::string, std::map<char, int>>> ref_text_models;
 
     public:
-        Findlang(int k, float alpha, std::vector<std::string> refTexts, std::string analysisText);
-        std::vector<std::map<std::string, std::map<char,int>>> getRefTextsModels();
-        std::map<std::string, std::map<char,int>> getAnalysisTextModel();
-        std::string guessLanguage(std::vector<std::map<std::string, std::map<char,int>>> &refTextsModels, std::map<std::string, std::map<char,int>> &analysisTextModel);
+        Findlang(int k, float alpha, std::vector<std::string> reference_texts, std::string filename);
+        std::string guessLanguage(); 
 };

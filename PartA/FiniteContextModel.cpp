@@ -15,13 +15,11 @@ FiniteContextModel::FiniteContextModel(int k, float alpha, std::string filename)
 {
     this->k = k;
     this->alpha = alpha;
-    this->source_file.open(filename);
-
     // Generate the occurance map
-    occurenceMap();
+    occurenceMap(filename);
 }
 
-void FiniteContextModel::occurenceMap()
+void FiniteContextModel::occurenceMap(std::string filename)
 {
     // Buffer circular que irá conter o contexto e o próximo 
     // caracter a ser analisado
@@ -29,6 +27,8 @@ void FiniteContextModel::occurenceMap()
     char text_character;
     int caracters;  
     
+    // Open the file wich the occurance map is being generated for
+    this->source_file.open(filename);
     // Fill the context buffer
     for(int i=0; i<this->k;)
     {
@@ -79,7 +79,8 @@ void FiniteContextModel::occurenceMap()
             }
         }
     }
-    this->totais = caracters;
+    this->total_characters = caracters;
+    this->source_file.close();
 }
 
 
@@ -108,7 +109,7 @@ double FiniteContextModel::calculateEntropy()
             entropia_contexto += log2(prob) * (prob); //soma p(i)*log(p(i))
             //std::cout << "contexto: " << context_string_iterator->first << " | entropia: "<< entropia_contexto <<  std::endl;
         }
-        entropy.insert(std::make_pair(context_string_iterator->first, -(entropia_contexto*(res/this->totais)))); //faz um mapa <contexto, entropia>
+        entropy.insert(std::make_pair(context_string_iterator->first, -(entropia_contexto*(res/this->total_characters)))); //faz um mapa <contexto, entropia>
     }
     double final = std::accumulate(std::begin(entropy),std::end(entropy),0.0, [] ( double acc, std::pair<std::string, double> p ) { return ( acc + p.second ); });
     //std::cout << "\nCaracteres totais: " << this->totais << "\n";

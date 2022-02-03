@@ -9,7 +9,7 @@ class FiniteContextModel
 {
     int k;                                                                  /*!< Order of the model */
     float alpha;                                                            /*!< Smoothing parameter */
-    int totais;                                                             /*!< Sum of all letters proceding all contexts */
+    int total_characters;                                                   /*!< Total number of characters in the file */
     std::map<std::string, std::map<char,int>> context_map;                  /*!< Map that contains all sub-models */
     std::ifstream source_file;                                              /*!< Stream that contains the name of the file to be analyzed */
 
@@ -41,7 +41,7 @@ class FiniteContextModel
          * 
          * @return std::map<std::string, std::map<char,int>> The occurrance map.
          */
-        std::map<std::string, std::map<char,int>> getContextMap(FiniteContextModel &fcm);
+        static std::map<std::string, std::map<char,int>> getContextMap(FiniteContextModel &fcm);
         /**
          * @brief Checks if the Character is valid
          * 
@@ -53,5 +53,5 @@ class FiniteContextModel
         /**
          * @brief Calculates which letters, and how many times, they procede each context.
          */
-        void occurenceMap();
+        void occurenceMap(std::string filename);
 };

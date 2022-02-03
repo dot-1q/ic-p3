@@ -1,7 +1,7 @@
 #include "Findlang.h"
 #include "../1/Lang.h"
 #include <iostream>
-using namespace std;
+#include <vector>
 
 /**
  * @brief Construct a new Findlang:: Findlang object
@@ -12,43 +12,11 @@ using namespace std;
  * @param analysisText 
  */
 
-Findlang::Findlang(int k, float alpha, vector<string> refTexts, string analysisText){
-    cout << "Starting to guess the language from the analysis text..." << endl;
+Findlang::Findlang(int k, float alpha, std::vector<std::string> reference_texts, std::string filename){
     this->k = k;
     this->alpha = alpha;
-    this->refTexts = refTexts;
-    this->analysisText = analysisText;
-}
-
-/**
- * @brief Returns the Reference Texts Models
- * 
- * @return vector<map<string, map<char,int>>> 
- */
-vector<map<string, map<char,int>>> Findlang::getRefTextsModels(){
-    cout << "Be patient, this may take a while..." << endl;
-    vector<map<string, map<char,int>>> refTextsModels;
-
-    for(int i = 0; i < this->refTexts.size(); i++){
-        Lang lang = Lang(this->k, this->alpha, this->refTexts.at(i), this->analysisText);
-        refTextsModels.push_back(lang.getRefTextModel());
-        // Only used for user info
-        double den = 33 / this->refTexts.size();
-        double percentage = (i+1) * den;
-        cout << "Proccess: " << percentage << "%..." << endl;  
-    }
-    return refTextsModels;
-}
-
-/**
- * @brief Returns the Analysis Texts Models
- * 
- * @return map<string, map<char,int>> 
- */
-map<string, map<char,int>> Findlang::getAnalysisTextModel(){
-    cout << "Proccess: 66%..." << endl;
-    FiniteContextModel fcm = FiniteContextModel(this->k,this->alpha,this->analysisText);
-    return fcm.getContextMap(fcm);
+    this->filename = filename;
+    this->referece_texts = reference_texts;
 }
 
 /**
@@ -58,32 +26,35 @@ map<string, map<char,int>> Findlang::getAnalysisTextModel(){
  * @param analysisTextModel 
  * @return string 
  */
-string Findlang::guessLanguage(vector<map<string, map<char,int>>> &refTextsModels, map<string, map<char,int>> &analysisTextModel){    
-    cout << "Proccess: 90%..." << endl;
-    cout << "Going to guess..."<< endl;
-    cout << "--------------------------------------" << endl;
+std::string Findlang::guessLanguage()
+{
+    std::cout << "Beginning of guessing stage" << std::endl;
+    std::cout << "This will compare the input text file against" << std::endl;
+    std::cout << "the reference texts and find which requires less bits " << std::endl;
+    std::cout << "per symbol to compress. " << std::endl;
+    std::cout << "--------------------------------------" << std::endl;
     
-    double maxbits = __DBL_MAX__;
+    double max_bits = __DBL_MAX__;
     int index = -1;
 
-    for(int i = 0; i < refTextsModels.size(); i++){
-        Lang lang = Lang(this->k, this->alpha, this->refTexts.at(i), this->analysisText);
-        double bits = lang.calculateBits();
+    for(int i = 0; i < this->referece_texts.size(); i++){
+        Lang model = Lang(this->k,this->alpha,this->referece_texts.at(i),filename);
+        double bits = model.calculateBits(); 
 
         // DEBUG
-        cout << this->refTexts.at(i)  <<": " << bits << endl;
+        std::cout << this->referece_texts.at(i)  <<": " << bits << std::endl;
 
-        if (bits < maxbits){
-            maxbits = bits;
+        if (bits < max_bits){
+            max_bits = bits;
             index = i;
         }
     }
 
-    cout << "--------------------------------------" << endl;
+    std::cout << "--------------------------------------" << std::endl;
     // Process string
-    string str = this->refTexts.at(index); 
-    string tmp = str.substr(7, str.size());
-    string lang = tmp.substr(0, tmp.find("_"));
+    std::string str = this->referece_texts.at(index); 
+    std::string tmp = str.substr(7, str.size());
+    std::string lang = tmp.substr(0, tmp.find("_"));
 
     return lang;
 }
