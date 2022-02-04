@@ -36,7 +36,7 @@ int main(int argc, char *argv[]){
         Findlang findlang = Findlang(k, alpha, ref_texts);
         
         std::cout << "\nWelcome to our language guesser! " << std::endl;
-        std::cout << "To add or chance the reference texts, you should" << std::endl;
+        std::cout << "To add or change the reference texts, you should" << std::endl;
         std::cout << "edit the \'main.cpp\' file and insert the texts in " << std::endl;
         std::cout << "the ref_texts array\n" << std::endl;
 
