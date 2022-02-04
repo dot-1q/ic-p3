@@ -10,7 +10,9 @@ Run:
 ```
 
 - Example:
-	- ```bash ./findlang 5 0.3 ../../Texts/Analysis_texts/Os_Maias.txt```
+```bash 
+./findlang 5 0.3 ../../Texts/Analysis_texts/Os_Maias.txt
+```
 
 Analysis Texts Directory Path:
 
