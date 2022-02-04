@@ -4,6 +4,10 @@
 #include <map>
 #include <memory>
 
+/**
+ * @brief Findlang class used for guessing a text's language based on reference texts
+ * 
+ */
 class Findlang{
     int k;
     float alpha;

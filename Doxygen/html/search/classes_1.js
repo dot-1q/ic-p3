@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['finitecontextmodel_0',['FiniteContextModel',['../classFiniteContextModel.html',1,'']]]
+  ['findlang_0',['Findlang',['../classFindlang.html',1,'']]],
+  ['finitecontextmodel_1',['FiniteContextModel',['../classFiniteContextModel.html',1,'']]]
 ];

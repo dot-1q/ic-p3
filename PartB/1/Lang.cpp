@@ -9,10 +9,10 @@
 
 /**
  * @brief Construct a new Lang:: Lang object
- * @param k 
- * @param alpha 
- * @param ref_text 
- * @param analysis_text 
+ * @param k The order of the model
+ * @param alpha The smoothing parameter
+ * @param ref_text Name of the reference text
+ * @param analysis_text Name of the text to compare
  */
 Lang::Lang(int k, float alpha, std::string ref_text, std::string analysis_text){
     this->k = k;
@@ -28,7 +28,7 @@ Lang::Lang(int k, float alpha, std::string ref_text, std::string analysis_text){
 /**
  * @brief To calculate the number of bits needed to represent the analysis text based on the reference text
  * 
- * @return double 
+ * @return double Number of bits per symbol
  */
 double Lang::calculateBits()
 {
@@ -92,9 +92,9 @@ double Lang::calculateBits()
 /**
  * @brief To calculate the number of bits needed to represent the analysis text based on the reference text
  * 
- * @param refTxtModel 
- * @param analysisTxtModel 
- * @return double 
+ * @param refTxtModel Base reference text model
+ * @param analysisTxtModel Model being analyzed
+ * @return double Number of bits per simbol
  */
 double Lang::calculateBits(int k,float alpha, std::map<std::string, std::map<char,int>> &ref_text, std::string filename)
 {

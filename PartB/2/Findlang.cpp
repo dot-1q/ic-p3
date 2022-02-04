@@ -6,10 +6,9 @@
 /**
  * @brief Construct a new Findlang:: Findlang object
  * 
- * @param k 
- * @param alpha 
- * @param refTexts 
- * @param analysisText 
+ * @param k The order of the model
+ * @param alpha The smoothing parameter
+ * @param reference_texts Array of Names of the referece texts models
  */
 
 Findlang::Findlang(int k, float alpha, std::vector<std::string> reference_texts){
@@ -23,9 +22,7 @@ Findlang::Findlang(int k, float alpha, std::vector<std::string> reference_texts)
 /**
  * @brief Guesses the analysis text language   
  * 
- * @param refTextsModels 
- * @param analysisTextModel 
- * @return string 
+ * @return string Resulting language
  */
 std::string Findlang::guessLanguage(std::string filename)
 {

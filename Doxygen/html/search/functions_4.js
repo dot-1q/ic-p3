@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['occurencemap_0',['occurenceMap',['../classFiniteContextModel.html#a2bf414f8239cf8819f0fa0610185069c',1,'FiniteContextModel']]]
+  ['isvalidchar_0',['isValidChar',['../classFiniteContextModel.html#adaf491d326afc4ed566715e662cf9ec4',1,'FiniteContextModel']]]
 ];

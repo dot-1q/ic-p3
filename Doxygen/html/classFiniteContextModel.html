@@ -20,9 +20,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Finite Context Model
+   <div id="projectname">Finite Context Model<span id="projectnumber">&#160;3</span>
    </div>
+   <div id="projectbrief">This finite-context model&#39;s main goal is to predict the next outcome of a text file. To do this, we infer a model based on the observed past of the sequence of outcomes.</div>
   </td>
  </tr>
  </tbody>
@@ -64,6 +66,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="classFiniteContextModel-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">FiniteContextModel Class Reference</div></div>
 </div><!--header-->
@@ -79,16 +82,21 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a91b69988066213ce2ebb03683dd390f1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFiniteContextModel.html#a91b69988066213ce2ebb03683dd390f1">FiniteContextModel</a> (int k, float alpha, const std::string filename)</td></tr>
 <tr class="memdesc:a91b69988066213ce2ebb03683dd390f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new Finite Context Model object.  <a href="classFiniteContextModel.html#a91b69988066213ce2ebb03683dd390f1">More...</a><br /></td></tr>
 <tr class="separator:a91b69988066213ce2ebb03683dd390f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2bf414f8239cf8819f0fa0610185069c"><td class="memItemLeft" align="right" valign="top"><a id="a2bf414f8239cf8819f0fa0610185069c" name="a2bf414f8239cf8819f0fa0610185069c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>occurenceMap</b> ()</td></tr>
-<tr class="memdesc:a2bf414f8239cf8819f0fa0610185069c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates which letters, and how many times, they procede each context. <br /></td></tr>
-<tr class="separator:a2bf414f8239cf8819f0fa0610185069c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad3f63a05ba6446d1a55dacdee56a99ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFiniteContextModel.html#ad3f63a05ba6446d1a55dacdee56a99ee">printOccurenceMap</a> ()</td></tr>
-<tr class="memdesc:ad3f63a05ba6446d1a55dacdee56a99ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the result of <a class="el" href="classFiniteContextModel.html#a2bf414f8239cf8819f0fa0610185069c" title="Calculates which letters, and how many times, they procede each context.">occurenceMap()</a>.  <a href="classFiniteContextModel.html#ad3f63a05ba6446d1a55dacdee56a99ee">More...</a><br /></td></tr>
+<tr class="memdesc:ad3f63a05ba6446d1a55dacdee56a99ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the result of occurenceMap()  <a href="classFiniteContextModel.html#ad3f63a05ba6446d1a55dacdee56a99ee">More...</a><br /></td></tr>
 <tr class="separator:ad3f63a05ba6446d1a55dacdee56a99ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa44ee07bd92fd823b4cbe383f321fac9"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFiniteContextModel.html#aa44ee07bd92fd823b4cbe383f321fac9">calculateEntropy</a> ()</td></tr>
 <tr class="memdesc:aa44ee07bd92fd823b4cbe383f321fac9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the entropy of the model.  <a href="classFiniteContextModel.html#aa44ee07bd92fd823b4cbe383f321fac9">More...</a><br /></td></tr>
 <tr class="separator:aa44ee07bd92fd823b4cbe383f321fac9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a23ea71c811e50f3fde745939f68336e0"><td class="memItemLeft" align="right" valign="top">static std::map&lt; std::string, std::map&lt; char, int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFiniteContextModel.html#a23ea71c811e50f3fde745939f68336e0">getContextMap</a> (<a class="el" href="classFiniteContextModel.html">FiniteContextModel</a> &amp;fcm)</td></tr>
+<tr class="memdesc:a23ea71c811e50f3fde745939f68336e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the occurrence map.  <a href="classFiniteContextModel.html#a23ea71c811e50f3fde745939f68336e0">More...</a><br /></td></tr>
+<tr class="separator:a23ea71c811e50f3fde745939f68336e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adaf491d326afc4ed566715e662cf9ec4"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFiniteContextModel.html#adaf491d326afc4ed566715e662cf9ec4">isValidChar</a> (char &amp;character)</td></tr>
+<tr class="memdesc:adaf491d326afc4ed566715e662cf9ec4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the Character is valid.  <a href="classFiniteContextModel.html#adaf491d326afc4ed566715e662cf9ec4">More...</a><br /></td></tr>
+<tr class="separator:adaf491d326afc4ed566715e662cf9ec4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Finite context Model class used to collect high-order statistical information of an information source, assigning a probability estimate to the symbols of the alphabet, according to a conditioning context computed over a finite and fixed number of past outcomes. </p>
@@ -128,9 +136,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>occurenceMap</b> ()</
 <p>Construct a new Finite Context Model object. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">k</td><td>The order of the model. </td></tr>
-    <tr><td class="paramname">alpha</td><td>The smoothing parameter. </td></tr>
-    <tr><td class="paramname">filename</td><td>The name of the text file to be analyzed. </td></tr>
+    <tr><td class="paramname">k</td><td>The order of the model </td></tr>
+    <tr><td class="paramname">alpha</td><td>The smoothing parameter </td></tr>
+    <tr><td class="paramname">filename</td><td>The name of the text file to be analyzed </td></tr>
   </table>
   </dd>
 </dl>
@@ -154,9 +162,77 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>occurenceMap</b> ()</
 </div><div class="memdoc">
 
 <p>Calculate the entropy of the model. </p>
-<dl class="section return"><dt>Returns</dt><dd>double The Entropy value of the model.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>double The Entropy value of the model</dd></dl>
 <p>Calculates as defined by: Entropy = sum(Hc * Pc). Pc = Probability of the context/sub-model. Hc = Entropy of the context/sub-model. Taking into consideration the alpha and aphabet size.</p>
 <dl class="section return"><dt>Returns</dt><dd>double Has to be between 0 and log2(27). </dd></dl>
+
+</div>
+</div>
+<a id="a23ea71c811e50f3fde745939f68336e0" name="a23ea71c811e50f3fde745939f68336e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23ea71c811e50f3fde745939f68336e0">&#9670;&nbsp;</a></span>getContextMap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt; std::string, std::map&lt; char, int &gt; &gt; FiniteContextModel::getContextMap </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classFiniteContextModel.html">FiniteContextModel</a> &amp;&#160;</td>
+          <td class="paramname"><em>fcm</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the occurrence map. </p>
+<dl class="section return"><dt>Returns</dt><dd>std::map&lt;std::string, std::map&lt;char,int&gt;&gt; The occurrance map</dd></dl>
+<p>Gets the text occurrance map.</p>
+<dl class="section return"><dt>Returns</dt><dd>std::map&lt;std::string, std::map&lt;char,int&gt;&gt; Returns the occurrence map. </dd></dl>
+
+</div>
+</div>
+<a id="adaf491d326afc4ed566715e662cf9ec4" name="adaf491d326afc4ed566715e662cf9ec4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adaf491d326afc4ed566715e662cf9ec4">&#9670;&nbsp;</a></span>isValidChar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FiniteContextModel::isValidChar </td>
+          <td>(</td>
+          <td class="paramtype">char &amp;&#160;</td>
+          <td class="paramname"><em>character</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if the Character is valid. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">character</td><td>A char. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>int Wether the Char is valid</dd></dl>
+<p>Checks if input Char is alphanumerical or space.</p>
+<dl class="section return"><dt>Returns</dt><dd>int Returns 1 if valid. </dd></dl>
 
 </div>
 </div>
@@ -175,8 +251,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>occurenceMap</b> ()</
       </table>
 </div><div class="memdoc">
 
-<p>Print the result of <a class="el" href="classFiniteContextModel.html#a2bf414f8239cf8819f0fa0610185069c" title="Calculates which letters, and how many times, they procede each context.">occurenceMap()</a>. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classFiniteContextModel.html#a2bf414f8239cf8819f0fa0610185069c" title="Calculates which letters, and how many times, they procede each context.">occurenceMap()</a></dd></dl>
+<p>Print the result of occurenceMap() </p>
+<dl class="section see"><dt>See also</dt><dd>occurenceMap()</dd></dl>
 <p>Creates an iterator that runs through all the contexts inside the context_map. Then another one is used to print each letter proceding said context and their count. </p>
 
 </div>

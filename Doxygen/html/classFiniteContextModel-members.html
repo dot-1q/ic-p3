@@ -20,9 +20,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Finite Context Model
+   <div id="projectname">Finite Context Model<span id="projectnumber">&#160;3</span>
    </div>
+   <div id="projectbrief">This finite-context model&#39;s main goal is to predict the next outcome of a text file. To do this, we infer a model based on the observed past of the sequence of outcomes.</div>
   </td>
  </tr>
  </tbody>
@@ -70,8 +72,9 @@ $(function() {
 <table class="directory">
   <tr class="even"><td class="entry"><a class="el" href="classFiniteContextModel.html#aa44ee07bd92fd823b4cbe383f321fac9">calculateEntropy</a>()</td><td class="entry"><a class="el" href="classFiniteContextModel.html">FiniteContextModel</a></td><td class="entry"></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="classFiniteContextModel.html#a91b69988066213ce2ebb03683dd390f1">FiniteContextModel</a>(int k, float alpha, const std::string filename)</td><td class="entry"><a class="el" href="classFiniteContextModel.html">FiniteContextModel</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classFiniteContextModel.html#a2bf414f8239cf8819f0fa0610185069c">occurenceMap</a>()</td><td class="entry"><a class="el" href="classFiniteContextModel.html">FiniteContextModel</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classFiniteContextModel.html#ad3f63a05ba6446d1a55dacdee56a99ee">printOccurenceMap</a>()</td><td class="entry"><a class="el" href="classFiniteContextModel.html">FiniteContextModel</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classFiniteContextModel.html#a23ea71c811e50f3fde745939f68336e0">getContextMap</a>(FiniteContextModel &amp;fcm)</td><td class="entry"><a class="el" href="classFiniteContextModel.html">FiniteContextModel</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classFiniteContextModel.html#adaf491d326afc4ed566715e662cf9ec4">isValidChar</a>(char &amp;character)</td><td class="entry"><a class="el" href="classFiniteContextModel.html">FiniteContextModel</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classFiniteContextModel.html#ad3f63a05ba6446d1a55dacdee56a99ee">printOccurenceMap</a>()</td><td class="entry"><a class="el" href="classFiniteContextModel.html">FiniteContextModel</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

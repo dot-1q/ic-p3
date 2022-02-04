@@ -1,0 +1,67 @@
+\hypertarget{classFindlang}{}\doxysection{Findlang Class Reference}
+\label{classFindlang}\index{Findlang@{Findlang}}
+
+
+\mbox{\hyperlink{classFindlang}{Findlang}} class used for guessing a text\textquotesingle{}s language based on reference texts.  
+
+
+
+
+{\ttfamily \#include $<$Findlang.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classFindlang_a5106b96d1a7e57769475f90ceee53dcb}{Findlang}} (int k, float alpha, std\+::vector$<$ std\+::string $>$ reference\+\_\+texts)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classFindlang}{Findlang}}\+:\+: \mbox{\hyperlink{classFindlang}{Findlang}} object. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classFindlang_acf00578a0f005c3109f3040a1f298014}{guess\+Language}} (std\+::string)
+\begin{DoxyCompactList}\small\item\em Guesses the analysis text language ~\newline
+ \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classFindlang}{Findlang}} class used for guessing a text\textquotesingle{}s language based on reference texts. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classFindlang_a5106b96d1a7e57769475f90ceee53dcb}\label{classFindlang_a5106b96d1a7e57769475f90ceee53dcb}} 
+\index{Findlang@{Findlang}!Findlang@{Findlang}}
+\index{Findlang@{Findlang}!Findlang@{Findlang}}
+\doxysubsubsection{\texorpdfstring{Findlang()}{Findlang()}}
+{\footnotesize\ttfamily Findlang\+::\+Findlang (\begin{DoxyParamCaption}\item[{int}]{k,  }\item[{float}]{alpha,  }\item[{std\+::vector$<$ std\+::string $>$}]{reference\+\_\+texts }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classFindlang}{Findlang}}\+:\+: \mbox{\hyperlink{classFindlang}{Findlang}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em k} & The order of the model \\
+\hline
+{\em alpha} & The smoothing parameter \\
+\hline
+{\em reference\+\_\+texts} & Array of Names of the referece texts models \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFindlang_acf00578a0f005c3109f3040a1f298014}\label{classFindlang_acf00578a0f005c3109f3040a1f298014}} 
+\index{Findlang@{Findlang}!guessLanguage@{guessLanguage}}
+\index{guessLanguage@{guessLanguage}!Findlang@{Findlang}}
+\doxysubsubsection{\texorpdfstring{guessLanguage()}{guessLanguage()}}
+{\footnotesize\ttfamily std\+::string Findlang\+::guess\+Language (\begin{DoxyParamCaption}\item[{std\+::string}]{filename }\end{DoxyParamCaption})}
+
+
+
+Guesses the analysis text language ~\newline
+ 
+
+\begin{DoxyReturn}{Returns}
+string Resulting language 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Part\+B/2/Findlang.\+h\item 
+Part\+B/2/Findlang.\+cpp\end{DoxyCompactItemize}

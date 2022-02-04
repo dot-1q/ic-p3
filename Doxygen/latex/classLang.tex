@@ -1,0 +1,98 @@
+\hypertarget{classLang}{}\doxysection{Lang Class Reference}
+\label{classLang}\index{Lang@{Lang}}
+
+
+\mbox{\hyperlink{classLang}{Lang}} class used for calculating the estimated bits per symbol needed to encode a text file based on a reference text.  
+
+
+
+
+{\ttfamily \#include $<$Lang.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classLang_a401539b10c07190f29131d40a9692bc8}{Lang}} (int k, float alpha, std\+::string ref\+Text, std\+::string analysis\+Text)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classLang}{Lang}}\+:\+: \mbox{\hyperlink{classLang}{Lang}} object. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classLang_abf35a4d8daf067aae54d6ee24e23e942}{calculate\+Bits}} ()
+\begin{DoxyCompactList}\small\item\em To calculate the number of bits needed to represent the analysis text based on the reference text. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLang_a7bfa462e16500b2ab06577eb4172c79d}\label{classLang_a7bfa462e16500b2ab06577eb4172c79d}} 
+static std\+::map$<$ std\+::string, std\+::map$<$ char, int $>$ $>$ {\bfseries get\+Ref\+Text\+Model} (\mbox{\hyperlink{classLang}{Lang}} \&ref\+\_\+text)
+\item 
+static double \mbox{\hyperlink{classLang_a192f2eac49b0611591ea232c96d52b25}{calculate\+Bits}} (int k, float alpha, std\+::map$<$ std\+::string, std\+::map$<$ char, int $>$ $>$ \&ref\+\_\+text\+\_\+map, std\+::string filename)
+\begin{DoxyCompactList}\small\item\em To calculate the number of bits needed to represent the analysis text based on the reference text. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLang_a4e89bf202a6097c1e22f05a1a28cf5d8}\label{classLang_a4e89bf202a6097c1e22f05a1a28cf5d8}} 
+static void {\bfseries load\+Ref\+Text\+Models} (int k, float alpha, std\+::vector$<$ std\+::string $>$ ref\+\_\+text, std\+::map$<$ std\+::string, std\+::map$<$ char, int $>$ $>$ ref\+\_\+text\+\_\+models\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classLang}{Lang}} class used for calculating the estimated bits per symbol needed to encode a text file based on a reference text. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classLang_a401539b10c07190f29131d40a9692bc8}\label{classLang_a401539b10c07190f29131d40a9692bc8}} 
+\index{Lang@{Lang}!Lang@{Lang}}
+\index{Lang@{Lang}!Lang@{Lang}}
+\doxysubsubsection{\texorpdfstring{Lang()}{Lang()}}
+{\footnotesize\ttfamily Lang\+::\+Lang (\begin{DoxyParamCaption}\item[{int}]{k,  }\item[{float}]{alpha,  }\item[{std\+::string}]{ref\+\_\+text,  }\item[{std\+::string}]{analysis\+\_\+text }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classLang}{Lang}}\+:\+: \mbox{\hyperlink{classLang}{Lang}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em k} & The order of the model \\
+\hline
+{\em alpha} & The smoothing parameter \\
+\hline
+{\em ref\+\_\+text} & Name of the reference text \\
+\hline
+{\em analysis\+\_\+text} & Name of the text to compare \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classLang_abf35a4d8daf067aae54d6ee24e23e942}\label{classLang_abf35a4d8daf067aae54d6ee24e23e942}} 
+\index{Lang@{Lang}!calculateBits@{calculateBits}}
+\index{calculateBits@{calculateBits}!Lang@{Lang}}
+\doxysubsubsection{\texorpdfstring{calculateBits()}{calculateBits()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily double Lang\+::calculate\+Bits (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+To calculate the number of bits needed to represent the analysis text based on the reference text. 
+
+\begin{DoxyReturn}{Returns}
+double Number of bits per symbol 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLang_a192f2eac49b0611591ea232c96d52b25}\label{classLang_a192f2eac49b0611591ea232c96d52b25}} 
+\index{Lang@{Lang}!calculateBits@{calculateBits}}
+\index{calculateBits@{calculateBits}!Lang@{Lang}}
+\doxysubsubsection{\texorpdfstring{calculateBits()}{calculateBits()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily double Lang\+::calculate\+Bits (\begin{DoxyParamCaption}\item[{int}]{k,  }\item[{float}]{alpha,  }\item[{std\+::map$<$ std\+::string, std\+::map$<$ char, int $>$ $>$ \&}]{ref\+\_\+text,  }\item[{std\+::string}]{filename }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+To calculate the number of bits needed to represent the analysis text based on the reference text. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ref\+Txt\+Model} & Base reference text model \\
+\hline
+{\em analysis\+Txt\+Model} & Model being analyzed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double Number of bits per simbol 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Part\+B/1/Lang.\+h\item 
+Part\+B/1/Lang.\+cpp\end{DoxyCompactItemize}

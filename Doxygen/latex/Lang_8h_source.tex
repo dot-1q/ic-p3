@@ -1,0 +1,25 @@
+\hypertarget{Lang_8h_source}{}\doxysection{Lang.\+h}
+\label{Lang_8h_source}\index{PartB/1/Lang.h@{PartB/1/Lang.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}../../PartA/FiniteContextModel.h"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{11 \textcolor{keyword}{class }\mbox{\hyperlink{classLang}{Lang}}\{}
+\DoxyCodeLine{12     \textcolor{keywordtype}{int} k;}
+\DoxyCodeLine{13     \textcolor{keywordtype}{float} alpha;}
+\DoxyCodeLine{14     std::map<std::string, std::map<char,int>> ref\_text\_map;}
+\DoxyCodeLine{15     std::ifstream analysis\_text;}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17     \textcolor{keyword}{public}:}
+\DoxyCodeLine{18         \mbox{\hyperlink{classLang_a401539b10c07190f29131d40a9692bc8}{Lang}}(\textcolor{keywordtype}{int} k, \textcolor{keywordtype}{float} alpha, std::string refText, std::string analysisText);}
+\DoxyCodeLine{19         \textcolor{keyword}{static} std::map<std::string, std::map<char,int>> getRefTextModel(\mbox{\hyperlink{classLang}{Lang}} \&ref\_text);}
+\DoxyCodeLine{20         \textcolor{keywordtype}{double} \mbox{\hyperlink{classLang_abf35a4d8daf067aae54d6ee24e23e942}{calculateBits}}(); }
+\DoxyCodeLine{21         \textcolor{keyword}{static} \textcolor{keywordtype}{double} \mbox{\hyperlink{classLang_abf35a4d8daf067aae54d6ee24e23e942}{calculateBits}}(\textcolor{keywordtype}{int} k, \textcolor{keywordtype}{float} alpha, std::map<std::string, std::map<char,int>> \&ref\_text\_map, std::string filename);}
+\DoxyCodeLine{22         \textcolor{keyword}{static} \textcolor{keywordtype}{void} loadRefTextModels(\textcolor{keywordtype}{int} k, \textcolor{keywordtype}{float} alpha, std::vector<std::string> ref\_text, std::map<std::string, std::map<char, int>> ref\_text\_models[]);}
+\DoxyCodeLine{23 \};}
+
+\end{DoxyCode}

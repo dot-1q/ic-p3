@@ -1,0 +1,35 @@
+How To Compile \& Run\+:
+
+Compile\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{g++ main.cpp Lang.cpp ../../PartA/FiniteContextModel.cpp ../../PartA/CircularBuffer.cpp -\/o lang}
+
+\end{DoxyCode}
+ Run\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./lang [-\/k-\/] [-\/alpha-\/] [-\/reference text file path-\/] [-\/analysis text file path-\/]}
+
+\end{DoxyCode}
+
+\begin{DoxyItemize}
+\item Example\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./lang 5 0.3 ../../Texts/Ref\_texts/French\_latn\_EP7.utf8 ../../Texts/Analysis\_texts/Memorie\_di\_un\_cacciatore.txt}
+
+\end{DoxyCode}
+
+\end{DoxyItemize}
+
+Reference Texts Directory Path\+:
+
+
+\begin{DoxyItemize}
+\item \char`\"{}../../\+Texts/\+Ref\+\_\+texts\char`\"{}
+\end{DoxyItemize}
+
+Analysis Texts Directory Path\+:
+
+
+\begin{DoxyItemize}
+\item \char`\"{}../../\+Texts/\+Analysis\+\_\+texts/\char`\"{} 
+\end{DoxyItemize}

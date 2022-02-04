@@ -1,0 +1,24 @@
+\hypertarget{Findlang_8h_source}{}\doxysection{Findlang.\+h}
+\label{Findlang_8h_source}\index{PartB/2/Findlang.h@{PartB/2/Findlang.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{11 \textcolor{keyword}{class }\mbox{\hyperlink{classFindlang}{Findlang}}\{}
+\DoxyCodeLine{12     \textcolor{keywordtype}{int} k;}
+\DoxyCodeLine{13     \textcolor{keywordtype}{float} alpha;}
+\DoxyCodeLine{14     std::vector<std::string> reference\_texts;}
+\DoxyCodeLine{15     \textcolor{comment}{// It's possible to store up to 20 referece model texts}}
+\DoxyCodeLine{16     std::map<std::string, std::map<char,int>> ref\_text\_models[20];}
+\DoxyCodeLine{17     \textcolor{comment}{//std::vector<std::map<std::string, std::map<char, int>>> ref\_text\_models;}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     \textcolor{keyword}{public}:}
+\DoxyCodeLine{20         \mbox{\hyperlink{classFindlang_a5106b96d1a7e57769475f90ceee53dcb}{Findlang}}(\textcolor{keywordtype}{int} k, \textcolor{keywordtype}{float} alpha, std::vector<std::string> reference\_texts);}
+\DoxyCodeLine{21         std::string \mbox{\hyperlink{classFindlang_acf00578a0f005c3109f3040a1f298014}{guessLanguage}}(std::string); }
+\DoxyCodeLine{22 \};}
+
+\end{DoxyCode}

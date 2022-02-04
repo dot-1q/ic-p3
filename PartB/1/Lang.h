@@ -4,6 +4,10 @@
 #include <map>
 #include <vector>
 
+/**
+ * @brief Lang class used for calculating the estimated bits per symbol needed to encode a text file based on a reference text
+ * 
+ */
 class Lang{
     int k;
     float alpha;

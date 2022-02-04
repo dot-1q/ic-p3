@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['printoccurencemap_0',['printOccurenceMap',['../classFiniteContextModel.html#ad3f63a05ba6446d1a55dacdee56a99ee',1,'FiniteContextModel']]],
-  ['putchar_1',['putChar',['../classCircularBuffer.html#a0f05d815b2cc7cc5e8983b144d65558c',1,'CircularBuffer']]]
+  ['lang_0',['Lang',['../classLang.html',1,'Lang'],['../classLang.html#a401539b10c07190f29131d40a9692bc8',1,'Lang::Lang()']]]
 ];
