@@ -3,14 +3,6 @@
 #include <iostream>
 #include <vector>
 
-/**
- * @brief Construct a new Findlang:: Findlang object
- * 
- * @param k The order of the model
- * @param alpha The smoothing parameter
- * @param reference_texts Array of Names of the referece texts models
- */
-
 Findlang::Findlang(int k, float alpha, std::vector<std::string> reference_texts){
     this->k = k;
     this->alpha = alpha;
@@ -19,11 +11,6 @@ Findlang::Findlang(int k, float alpha, std::vector<std::string> reference_texts)
     Lang::loadRefTextModels(k,alpha,reference_texts,this->ref_text_models);
 }
 
-/**
- * @brief Guesses the analysis text language   
- * 
- * @return string Resulting language
- */
 std::string Findlang::guessLanguage(std::string filename)
 {
     std::cout << "Beginning of guessing stage" << std::endl;
@@ -41,7 +28,7 @@ std::string Findlang::guessLanguage(std::string filename)
         double bits = Lang::calculateBits(this->k,this->alpha,this->ref_text_models[i],filename); 
 
         // DEBUG
-        std::cout << this->reference_texts.at(i)  <<": " << bits << std::endl;
+        std::cout << this->reference_texts.at(i)  <<": " << bits << " bits per symbol" << std::endl;
 
         if (bits < max_bits){
             max_bits = bits;
@@ -52,8 +39,6 @@ std::string Findlang::guessLanguage(std::string filename)
     std::cout << "--------------------------------------" << std::endl;
     // Process string
     std::string str = this->reference_texts.at(index); 
-    // std::string tmp = str.substr(7, str.size());
-    // std::string lang = tmp.substr(0, tmp.find("_"));
     std::string tmp = str.substr(22, str.size());
     std::string lang = tmp.substr(0, tmp.find("_"));
 

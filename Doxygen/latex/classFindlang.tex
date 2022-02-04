@@ -2,7 +2,7 @@
 \label{classFindlang}\index{Findlang@{Findlang}}
 
 
-\mbox{\hyperlink{classFindlang}{Findlang}} class used for guessing a text\textquotesingle{}s language based on reference texts.  
+\mbox{\hyperlink{classFindlang}{Findlang}} class used to guess the language a text was written into.  
 
 
 
@@ -12,15 +12,28 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classFindlang_a5106b96d1a7e57769475f90ceee53dcb}{Findlang}} (int k, float alpha, std\+::vector$<$ std\+::string $>$ reference\+\_\+texts)
-\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classFindlang}{Findlang}}\+:\+: \mbox{\hyperlink{classFindlang}{Findlang}} object. \end{DoxyCompactList}\item 
-std\+::string \mbox{\hyperlink{classFindlang_acf00578a0f005c3109f3040a1f298014}{guess\+Language}} (std\+::string)
+\mbox{\hyperlink{classFindlang_a5106b96d1a7e57769475f90ceee53dcb}{Findlang}} (int \mbox{\hyperlink{classFindlang_a6f7f7b7ae798e9d82cbab5303e71284d}{k}}, float \mbox{\hyperlink{classFindlang_ac129710baf08c0310fb75b0948f2f13a}{alpha}}, std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classFindlang_a5ef58a2278275027e3a8a9239c2bb89f}{reference\+\_\+texts}})
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classFindlang}{Findlang}}\+:\+: \mbox{\hyperlink{classFindlang}{Findlang}} object. It starts by loading all the reference text models into memory to save computation. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classFindlang_a29560af429739b62adc5947843684fb0}{guess\+Language}} (std\+::string filename)
 \begin{DoxyCompactList}\small\item\em Guesses the analysis text language ~\newline
  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classFindlang_a6f7f7b7ae798e9d82cbab5303e71284d}{k}}
+\item 
+float \mbox{\hyperlink{classFindlang_ac129710baf08c0310fb75b0948f2f13a}{alpha}}
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classFindlang_a5ef58a2278275027e3a8a9239c2bb89f}{reference\+\_\+texts}}
+\item 
+std\+::map$<$ std\+::string, std\+::map$<$ char, int $>$ $>$ \mbox{\hyperlink{classFindlang_aa7f188924430d61e44808e2b19c37bfb}{ref\+\_\+text\+\_\+models}} \mbox{[}20\mbox{]}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-\mbox{\hyperlink{classFindlang}{Findlang}} class used for guessing a text\textquotesingle{}s language based on reference texts. 
+\mbox{\hyperlink{classFindlang}{Findlang}} class used to guess the language a text was written into. 
+
+
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classFindlang_a5106b96d1a7e57769475f90ceee53dcb}\label{classFindlang_a5106b96d1a7e57769475f90ceee53dcb}} 
@@ -31,7 +44,7 @@ std\+::string \mbox{\hyperlink{classFindlang_acf00578a0f005c3109f3040a1f298014}{
 
 
 
-Construct a new \mbox{\hyperlink{classFindlang}{Findlang}}\+:\+: \mbox{\hyperlink{classFindlang}{Findlang}} object. 
+Construct a new \mbox{\hyperlink{classFindlang}{Findlang}}\+:\+: \mbox{\hyperlink{classFindlang}{Findlang}} object. It starts by loading all the reference text models into memory to save computation. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -45,7 +58,7 @@ Construct a new \mbox{\hyperlink{classFindlang}{Findlang}}\+:\+: \mbox{\hyperlin
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classFindlang_acf00578a0f005c3109f3040a1f298014}\label{classFindlang_acf00578a0f005c3109f3040a1f298014}} 
+\mbox{\Hypertarget{classFindlang_a29560af429739b62adc5947843684fb0}\label{classFindlang_a29560af429739b62adc5947843684fb0}} 
 \index{Findlang@{Findlang}!guessLanguage@{guessLanguage}}
 \index{guessLanguage@{guessLanguage}!Findlang@{Findlang}}
 \doxysubsubsection{\texorpdfstring{guessLanguage()}{guessLanguage()}}
@@ -56,10 +69,43 @@ Construct a new \mbox{\hyperlink{classFindlang}{Findlang}}\+:\+: \mbox{\hyperlin
 Guesses the analysis text language ~\newline
  
 
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Name of the file for with we want to guess the language\\
+\hline
+\end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-string Resulting language 
+string Guessed languaged 
 \end{DoxyReturn}
 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classFindlang_ac129710baf08c0310fb75b0948f2f13a}\label{classFindlang_ac129710baf08c0310fb75b0948f2f13a}} 
+\index{Findlang@{Findlang}!alpha@{alpha}}
+\index{alpha@{alpha}!Findlang@{Findlang}}
+\doxysubsubsection{\texorpdfstring{alpha}{alpha}}
+{\footnotesize\ttfamily float Findlang\+::alpha\hspace{0.3cm}{\ttfamily [private]}}
+
+The smoothing parameter \mbox{\Hypertarget{classFindlang_a6f7f7b7ae798e9d82cbab5303e71284d}\label{classFindlang_a6f7f7b7ae798e9d82cbab5303e71284d}} 
+\index{Findlang@{Findlang}!k@{k}}
+\index{k@{k}!Findlang@{Findlang}}
+\doxysubsubsection{\texorpdfstring{k}{k}}
+{\footnotesize\ttfamily int Findlang\+::k\hspace{0.3cm}{\ttfamily [private]}}
+
+Order of the model \mbox{\Hypertarget{classFindlang_aa7f188924430d61e44808e2b19c37bfb}\label{classFindlang_aa7f188924430d61e44808e2b19c37bfb}} 
+\index{Findlang@{Findlang}!ref\_text\_models@{ref\_text\_models}}
+\index{ref\_text\_models@{ref\_text\_models}!Findlang@{Findlang}}
+\doxysubsubsection{\texorpdfstring{ref\_text\_models}{ref\_text\_models}}
+{\footnotesize\ttfamily std\+::map$<$std\+::string, std\+::map$<$char,int$>$ $>$ Findlang\+::ref\+\_\+text\+\_\+models\mbox{[}20\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+Array in memory containing the context maps of the reference texts \mbox{\Hypertarget{classFindlang_a5ef58a2278275027e3a8a9239c2bb89f}\label{classFindlang_a5ef58a2278275027e3a8a9239c2bb89f}} 
+\index{Findlang@{Findlang}!reference\_texts@{reference\_texts}}
+\index{reference\_texts@{reference\_texts}!Findlang@{Findlang}}
+\doxysubsubsection{\texorpdfstring{reference\_texts}{reference\_texts}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ Findlang\+::reference\+\_\+texts\hspace{0.3cm}{\ttfamily [private]}}
+
+Array of Names of the referece texts models ~\newline
+ 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

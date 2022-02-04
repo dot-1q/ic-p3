@@ -7,13 +7,6 @@
 #include <math.h>
 #include <vector>
 
-/**
- * @brief Construct a new Lang:: Lang object
- * @param k The order of the model
- * @param alpha The smoothing parameter
- * @param ref_text Name of the reference text
- * @param analysis_text Name of the text to compare
- */
 Lang::Lang(int k, float alpha, std::string ref_text, std::string analysis_text){
     this->k = k;
     this->alpha = alpha;
@@ -25,11 +18,6 @@ Lang::Lang(int k, float alpha, std::string ref_text, std::string analysis_text){
     this->ref_text_map = FiniteContextModel::getContextMap(ref);
 }
 
-/**
- * @brief To calculate the number of bits needed to represent the analysis text based on the reference text
- * 
- * @return double Number of bits per symbol
- */
 double Lang::calculateBits()
 {
     double bits, occurrance, prob;
@@ -89,13 +77,6 @@ double Lang::calculateBits()
     return (bits/27);
 }
 
-/**
- * @brief To calculate the number of bits needed to represent the analysis text based on the reference text
- * 
- * @param refTxtModel Base reference text model
- * @param analysisTxtModel Model being analyzed
- * @return double Number of bits per simbol
- */
 double Lang::calculateBits(int k,float alpha, std::map<std::string, std::map<char,int>> &ref_text, std::string filename)
 {
     double bits=0, occurrance=0, prob = 0;
@@ -168,9 +149,4 @@ void Lang::loadRefTextModels(int k, float alpha, std::vector<std::string> ref_te
         ref_text_models[i] = ref_text_map;
         std::cout << "Loaded " << ref_texts.at(i) << " model into memory" << std::endl;
     }
-}
-
-std::map<std::string, std::map<char,int>> Lang::getRefTextModel(Lang &ref_text)
-{
-    return ref_text.ref_text_map;
 }

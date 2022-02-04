@@ -12,19 +12,38 @@ Finite context Model class used to collect high-\/order statistical information 
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classFiniteContextModel_a91b69988066213ce2ebb03683dd390f1}{Finite\+Context\+Model}} (int k, float alpha, const std\+::string filename)
+\mbox{\hyperlink{classFiniteContextModel_a91b69988066213ce2ebb03683dd390f1}{Finite\+Context\+Model}} (int \mbox{\hyperlink{classFiniteContextModel_a28398b9f6788653cbb5a86116e755e97}{k}}, float \mbox{\hyperlink{classFiniteContextModel_aaf3f548371fc2e5fd6cccd7af386a8a5}{alpha}}, const std\+::string filename)
 \begin{DoxyCompactList}\small\item\em Construct a new Finite Context Model object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classFiniteContextModel_ad3f63a05ba6446d1a55dacdee56a99ee}{print\+Occurence\+Map}} ()
-\begin{DoxyCompactList}\small\item\em Print the result of occurence\+Map() \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Print the result of \mbox{\hyperlink{classFiniteContextModel_a50af50bc757665955417e7044aa0dfb4}{occurence\+Map()}} \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{classFiniteContextModel_aa44ee07bd92fd823b4cbe383f321fac9}{calculate\+Entropy}} ()
 \begin{DoxyCompactList}\small\item\em Calculate the entropy of the model. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 static std\+::map$<$ std\+::string, std\+::map$<$ char, int $>$ $>$ \mbox{\hyperlink{classFiniteContextModel_a23ea71c811e50f3fde745939f68336e0}{get\+Context\+Map}} (\mbox{\hyperlink{classFiniteContextModel}{Finite\+Context\+Model}} \&fcm)
-\begin{DoxyCompactList}\small\item\em Gets the occurrence map. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Gets the occurrence map associated to a Finite Context Model. \end{DoxyCompactList}\item 
 static int \mbox{\hyperlink{classFiniteContextModel_adaf491d326afc4ed566715e662cf9ec4}{is\+Valid\+Char}} (char \&character)
-\begin{DoxyCompactList}\small\item\em Checks if the Character is valid. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Checks if the Character is valid, meaning, if it\textquotesingle{}s alpha-\/numerical \mbox{[}0-\/9\mbox{]}\mbox{[}a-\/z,A-\/Z\mbox{]} plus the \textquotesingle{}space\textquotesingle{} character. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classFiniteContextModel_a50af50bc757665955417e7044aa0dfb4}\label{classFiniteContextModel_a50af50bc757665955417e7044aa0dfb4}} 
+void \mbox{\hyperlink{classFiniteContextModel_a50af50bc757665955417e7044aa0dfb4}{occurence\+Map}} (std\+::string filename)
+\begin{DoxyCompactList}\small\item\em Generates the Context Map, which contains the letters, and how many times, they procede each context of size k. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classFiniteContextModel_a28398b9f6788653cbb5a86116e755e97}{k}}
+\item 
+float \mbox{\hyperlink{classFiniteContextModel_aaf3f548371fc2e5fd6cccd7af386a8a5}{alpha}}
+\item 
+int \mbox{\hyperlink{classFiniteContextModel_a521b4e2229d81880a74956e7e2b0520b}{total\+\_\+characters}}
+\item 
+std\+::map$<$ std\+::string, std\+::map$<$ char, int $>$ $>$ \mbox{\hyperlink{classFiniteContextModel_ae9654035f6dd9ac830b9f9685e26abbc}{context\+\_\+map}}
+\item 
+std\+::ifstream \mbox{\hyperlink{classFiniteContextModel_ad9c589915ea9e99e7362c701d66143b2}{source\+\_\+file}}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -79,7 +98,7 @@ double Has to be between 0 and log2(27).
 
 
 
-Gets the occurrence map. 
+Gets the occurrence map associated to a Finite Context Model. 
 
 \begin{DoxyReturn}{Returns}
 std\+::map$<$std\+::string, std\+::map$<$char,int$>$$>$ The occurrance map
@@ -97,7 +116,7 @@ std\+::map$<$std\+::string, std\+::map$<$char,int$>$$>$ Returns the occurrence m
 
 
 
-Checks if the Character is valid. 
+Checks if the Character is valid, meaning, if it\textquotesingle{}s alpha-\/numerical \mbox{[}0-\/9\mbox{]}\mbox{[}a-\/z,A-\/Z\mbox{]} plus the \textquotesingle{}space\textquotesingle{} character. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -105,7 +124,7 @@ Checks if the Character is valid.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-int Wether the Char is valid
+int Whether the Char is valid or not
 \end{DoxyReturn}
 Checks if input Char is alphanumerical or space.
 
@@ -120,12 +139,46 @@ int Returns 1 if valid.
 
 
 
-Print the result of occurence\+Map() 
+Print the result of \mbox{\hyperlink{classFiniteContextModel_a50af50bc757665955417e7044aa0dfb4}{occurence\+Map()}} 
 
 \begin{DoxySeeAlso}{See also}
-occurence\+Map()
+\mbox{\hyperlink{classFiniteContextModel_a50af50bc757665955417e7044aa0dfb4}{occurence\+Map()}}
 \end{DoxySeeAlso}
 Creates an iterator that runs through all the contexts inside the context\+\_\+map. Then another one is used to print each letter proceding said context and their count. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classFiniteContextModel_aaf3f548371fc2e5fd6cccd7af386a8a5}\label{classFiniteContextModel_aaf3f548371fc2e5fd6cccd7af386a8a5}} 
+\index{FiniteContextModel@{FiniteContextModel}!alpha@{alpha}}
+\index{alpha@{alpha}!FiniteContextModel@{FiniteContextModel}}
+\doxysubsubsection{\texorpdfstring{alpha}{alpha}}
+{\footnotesize\ttfamily float Finite\+Context\+Model\+::alpha\hspace{0.3cm}{\ttfamily [private]}}
+
+Smoothing parameter \mbox{\Hypertarget{classFiniteContextModel_ae9654035f6dd9ac830b9f9685e26abbc}\label{classFiniteContextModel_ae9654035f6dd9ac830b9f9685e26abbc}} 
+\index{FiniteContextModel@{FiniteContextModel}!context\_map@{context\_map}}
+\index{context\_map@{context\_map}!FiniteContextModel@{FiniteContextModel}}
+\doxysubsubsection{\texorpdfstring{context\_map}{context\_map}}
+{\footnotesize\ttfamily std\+::map$<$std\+::string, std\+::map$<$char,int$>$ $>$ Finite\+Context\+Model\+::context\+\_\+map\hspace{0.3cm}{\ttfamily [private]}}
+
+Map that contains all model contexts and their following characters ~\newline
+ \mbox{\Hypertarget{classFiniteContextModel_a28398b9f6788653cbb5a86116e755e97}\label{classFiniteContextModel_a28398b9f6788653cbb5a86116e755e97}} 
+\index{FiniteContextModel@{FiniteContextModel}!k@{k}}
+\index{k@{k}!FiniteContextModel@{FiniteContextModel}}
+\doxysubsubsection{\texorpdfstring{k}{k}}
+{\footnotesize\ttfamily int Finite\+Context\+Model\+::k\hspace{0.3cm}{\ttfamily [private]}}
+
+Order of the model \mbox{\Hypertarget{classFiniteContextModel_ad9c589915ea9e99e7362c701d66143b2}\label{classFiniteContextModel_ad9c589915ea9e99e7362c701d66143b2}} 
+\index{FiniteContextModel@{FiniteContextModel}!source\_file@{source\_file}}
+\index{source\_file@{source\_file}!FiniteContextModel@{FiniteContextModel}}
+\doxysubsubsection{\texorpdfstring{source\_file}{source\_file}}
+{\footnotesize\ttfamily std\+::ifstream Finite\+Context\+Model\+::source\+\_\+file\hspace{0.3cm}{\ttfamily [private]}}
+
+File stream of the text to be analyzed \mbox{\Hypertarget{classFiniteContextModel_a521b4e2229d81880a74956e7e2b0520b}\label{classFiniteContextModel_a521b4e2229d81880a74956e7e2b0520b}} 
+\index{FiniteContextModel@{FiniteContextModel}!total\_characters@{total\_characters}}
+\index{total\_characters@{total\_characters}!FiniteContextModel@{FiniteContextModel}}
+\doxysubsubsection{\texorpdfstring{total\_characters}{total\_characters}}
+{\footnotesize\ttfamily int Finite\+Context\+Model\+::total\+\_\+characters\hspace{0.3cm}{\ttfamily [private]}}
+
+Total number of characters in the file 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

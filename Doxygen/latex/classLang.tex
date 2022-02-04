@@ -12,46 +12,55 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classLang_a401539b10c07190f29131d40a9692bc8}{Lang}} (int k, float alpha, std\+::string ref\+Text, std\+::string analysis\+Text)
-\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classLang}{Lang}}\+:\+: \mbox{\hyperlink{classLang}{Lang}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classLang_a6c9da5e1e953d3bb2199aec56cef54ad}{Lang}} (int \mbox{\hyperlink{classLang_a203a5954a2cdafb3b801b5a10a570b33}{k}}, float \mbox{\hyperlink{classLang_a1ef2bcc9f24ff3fc2931849c918826c1}{alpha}}, std\+::string reference\+\_\+text, std\+::string \mbox{\hyperlink{classLang_a90a43624df942f4563536dd82964576b}{analysis\+\_\+text}})
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classLang}{Lang}} object. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{classLang_abf35a4d8daf067aae54d6ee24e23e942}{calculate\+Bits}} ()
-\begin{DoxyCompactList}\small\item\em To calculate the number of bits needed to represent the analysis text based on the reference text. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Calculate the bits per symbol needed to encode a text file based on the reference one. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classLang_a7bfa462e16500b2ab06577eb4172c79d}\label{classLang_a7bfa462e16500b2ab06577eb4172c79d}} 
-static std\+::map$<$ std\+::string, std\+::map$<$ char, int $>$ $>$ {\bfseries get\+Ref\+Text\+Model} (\mbox{\hyperlink{classLang}{Lang}} \&ref\+\_\+text)
+static double \mbox{\hyperlink{classLang_a9bad15cb3fed864fddf21cea93ce316b}{calculate\+Bits}} (int \mbox{\hyperlink{classLang_a203a5954a2cdafb3b801b5a10a570b33}{k}}, float \mbox{\hyperlink{classLang_a1ef2bcc9f24ff3fc2931849c918826c1}{alpha}}, std\+::map$<$ std\+::string, std\+::map$<$ char, int $>$$>$ \&\mbox{\hyperlink{classLang_a89e754f8973369c9b2979a817a0c510f}{ref\+\_\+text\+\_\+map}}, std\+::string filename)
+\begin{DoxyCompactList}\small\item\em Similar to calculate bits, but its static, meaning, there no need to create a \mbox{\hyperlink{classLang}{Lang}} object. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLang_af20b595a76dfb744772b4cc120c028ad}{load\+Ref\+Text\+Models}} (int \mbox{\hyperlink{classLang_a203a5954a2cdafb3b801b5a10a570b33}{k}}, float \mbox{\hyperlink{classLang_a1ef2bcc9f24ff3fc2931849c918826c1}{alpha}}, std\+::vector$<$ std\+::string $>$ ref\+\_\+text, std\+::map$<$ std\+::string, std\+::map$<$ char, int $>$$>$ ref\+\_\+text\+\_\+models\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Load multiple reference texts context maps to memory via an array of context maps. This saves computation when we want to analyse different texts back to back, because we won\textquotesingle{}t need to generate the reference texts models all over again. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
 \item 
-static double \mbox{\hyperlink{classLang_a192f2eac49b0611591ea232c96d52b25}{calculate\+Bits}} (int k, float alpha, std\+::map$<$ std\+::string, std\+::map$<$ char, int $>$ $>$ \&ref\+\_\+text\+\_\+map, std\+::string filename)
-\begin{DoxyCompactList}\small\item\em To calculate the number of bits needed to represent the analysis text based on the reference text. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classLang_a4e89bf202a6097c1e22f05a1a28cf5d8}\label{classLang_a4e89bf202a6097c1e22f05a1a28cf5d8}} 
-static void {\bfseries load\+Ref\+Text\+Models} (int k, float alpha, std\+::vector$<$ std\+::string $>$ ref\+\_\+text, std\+::map$<$ std\+::string, std\+::map$<$ char, int $>$ $>$ ref\+\_\+text\+\_\+models\mbox{[}$\,$\mbox{]})
+int \mbox{\hyperlink{classLang_a203a5954a2cdafb3b801b5a10a570b33}{k}}
+\item 
+float \mbox{\hyperlink{classLang_a1ef2bcc9f24ff3fc2931849c918826c1}{alpha}}
+\item 
+std\+::map$<$ std\+::string, std\+::map$<$ char, int $>$ $>$ \mbox{\hyperlink{classLang_a89e754f8973369c9b2979a817a0c510f}{ref\+\_\+text\+\_\+map}}
+\item 
+std\+::ifstream \mbox{\hyperlink{classLang_a90a43624df942f4563536dd82964576b}{analysis\+\_\+text}}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 \mbox{\hyperlink{classLang}{Lang}} class used for calculating the estimated bits per symbol needed to encode a text file based on a reference text. 
 
+
+
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classLang_a401539b10c07190f29131d40a9692bc8}\label{classLang_a401539b10c07190f29131d40a9692bc8}} 
+\mbox{\Hypertarget{classLang_a6c9da5e1e953d3bb2199aec56cef54ad}\label{classLang_a6c9da5e1e953d3bb2199aec56cef54ad}} 
 \index{Lang@{Lang}!Lang@{Lang}}
 \index{Lang@{Lang}!Lang@{Lang}}
 \doxysubsubsection{\texorpdfstring{Lang()}{Lang()}}
-{\footnotesize\ttfamily Lang\+::\+Lang (\begin{DoxyParamCaption}\item[{int}]{k,  }\item[{float}]{alpha,  }\item[{std\+::string}]{ref\+\_\+text,  }\item[{std\+::string}]{analysis\+\_\+text }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Lang\+::\+Lang (\begin{DoxyParamCaption}\item[{int}]{k,  }\item[{float}]{alpha,  }\item[{std\+::string}]{reference\+\_\+text,  }\item[{std\+::string}]{analysis\+\_\+text }\end{DoxyParamCaption})}
 
 
 
-Construct a new \mbox{\hyperlink{classLang}{Lang}}\+:\+: \mbox{\hyperlink{classLang}{Lang}} object. 
+Construct a new \mbox{\hyperlink{classLang}{Lang}} object. 
 
 
 \begin{DoxyParams}{Parameters}
 {\em k} & The order of the model \\
 \hline
-{\em alpha} & The smoothing parameter \\
+{\em alpha} & The smoothing paramenter \\
 \hline
-{\em ref\+\_\+text} & Name of the reference text \\
+{\em reference\+\_\+text} & The file to be modeled using a F\+CM \\
 \hline
-{\em analysis\+\_\+text} & Name of the text to compare \\
+{\em analysis\+\_\+text} & The file to be compared against the Reference text to determing the bits per symbol needed \\
 \hline
 \end{DoxyParams}
 
@@ -65,32 +74,85 @@ Construct a new \mbox{\hyperlink{classLang}{Lang}}\+:\+: \mbox{\hyperlink{classL
 
 
 
-To calculate the number of bits needed to represent the analysis text based on the reference text. 
+Calculate the bits per symbol needed to encode a text file based on the reference one. 
 
 \begin{DoxyReturn}{Returns}
-double Number of bits per symbol 
+double number of bits per symbol 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classLang_a192f2eac49b0611591ea232c96d52b25}\label{classLang_a192f2eac49b0611591ea232c96d52b25}} 
+\mbox{\Hypertarget{classLang_a9bad15cb3fed864fddf21cea93ce316b}\label{classLang_a9bad15cb3fed864fddf21cea93ce316b}} 
 \index{Lang@{Lang}!calculateBits@{calculateBits}}
 \index{calculateBits@{calculateBits}!Lang@{Lang}}
 \doxysubsubsection{\texorpdfstring{calculateBits()}{calculateBits()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily double Lang\+::calculate\+Bits (\begin{DoxyParamCaption}\item[{int}]{k,  }\item[{float}]{alpha,  }\item[{std\+::map$<$ std\+::string, std\+::map$<$ char, int $>$ $>$ \&}]{ref\+\_\+text,  }\item[{std\+::string}]{filename }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily double Lang\+::calculate\+Bits (\begin{DoxyParamCaption}\item[{int}]{k,  }\item[{float}]{alpha,  }\item[{std\+::map$<$ std\+::string, std\+::map$<$ char, int $>$$>$ \&}]{ref\+\_\+text\+\_\+map,  }\item[{std\+::string}]{filename }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
-To calculate the number of bits needed to represent the analysis text based on the reference text. 
+Similar to calculate bits, but its static, meaning, there no need to create a \mbox{\hyperlink{classLang}{Lang}} object. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em ref\+Txt\+Model} & Base reference text model \\
+{\em k} & The order of the model \\
 \hline
-{\em analysis\+Txt\+Model} & Model being analyzed \\
+{\em alpha} & The smoothing parameter \\
+\hline
+{\em ref\+\_\+text} & Reference to a Context Map of a reference text \\
+\hline
+{\em filename} & Name of the text file to be analysed\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-double Number of bits per simbol 
+double number of bits per symbol 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classLang_af20b595a76dfb744772b4cc120c028ad}\label{classLang_af20b595a76dfb744772b4cc120c028ad}} 
+\index{Lang@{Lang}!loadRefTextModels@{loadRefTextModels}}
+\index{loadRefTextModels@{loadRefTextModels}!Lang@{Lang}}
+\doxysubsubsection{\texorpdfstring{loadRefTextModels()}{loadRefTextModels()}}
+{\footnotesize\ttfamily void Lang\+::load\+Ref\+Text\+Models (\begin{DoxyParamCaption}\item[{int}]{k,  }\item[{float}]{alpha,  }\item[{std\+::vector$<$ std\+::string $>$}]{ref\+\_\+text,  }\item[{std\+::map$<$ std\+::string, std\+::map$<$ char, int $>$$>$}]{ref\+\_\+text\+\_\+models\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
+
+
+Load multiple reference texts context maps to memory via an array of context maps. This saves computation when we want to analyse different texts back to back, because we won\textquotesingle{}t need to generate the reference texts models all over again. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em k} & The order of the model \\
+\hline
+{\em alpha} & The smoothing paramenter \\
+\hline
+{\em ref\+\_\+text} & An array of reference texts \\
+\hline
+{\em ref\+\_\+text\+\_\+models} & A reference to an array residing in memory wich will store all of the context maps associated with the reference texts ~\newline
+ \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classLang_a1ef2bcc9f24ff3fc2931849c918826c1}\label{classLang_a1ef2bcc9f24ff3fc2931849c918826c1}} 
+\index{Lang@{Lang}!alpha@{alpha}}
+\index{alpha@{alpha}!Lang@{Lang}}
+\doxysubsubsection{\texorpdfstring{alpha}{alpha}}
+{\footnotesize\ttfamily float Lang\+::alpha\hspace{0.3cm}{\ttfamily [private]}}
+
+Smothing parameter \mbox{\Hypertarget{classLang_a90a43624df942f4563536dd82964576b}\label{classLang_a90a43624df942f4563536dd82964576b}} 
+\index{Lang@{Lang}!analysis\_text@{analysis\_text}}
+\index{analysis\_text@{analysis\_text}!Lang@{Lang}}
+\doxysubsubsection{\texorpdfstring{analysis\_text}{analysis\_text}}
+{\footnotesize\ttfamily std\+::ifstream Lang\+::analysis\+\_\+text\hspace{0.3cm}{\ttfamily [private]}}
+
+File stream of the text to be analyzed \mbox{\Hypertarget{classLang_a203a5954a2cdafb3b801b5a10a570b33}\label{classLang_a203a5954a2cdafb3b801b5a10a570b33}} 
+\index{Lang@{Lang}!k@{k}}
+\index{k@{k}!Lang@{Lang}}
+\doxysubsubsection{\texorpdfstring{k}{k}}
+{\footnotesize\ttfamily int Lang\+::k\hspace{0.3cm}{\ttfamily [private]}}
+
+Order of the model \mbox{\Hypertarget{classLang_a89e754f8973369c9b2979a817a0c510f}\label{classLang_a89e754f8973369c9b2979a817a0c510f}} 
+\index{Lang@{Lang}!ref\_text\_map@{ref\_text\_map}}
+\index{ref\_text\_map@{ref\_text\_map}!Lang@{Lang}}
+\doxysubsubsection{\texorpdfstring{ref\_text\_map}{ref\_text\_map}}
+{\footnotesize\ttfamily std\+::map$<$std\+::string, std\+::map$<$char,int$>$ $>$ Lang\+::ref\+\_\+text\+\_\+map\hspace{0.3cm}{\ttfamily [private]}}
+
+Context Map of the reference file 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

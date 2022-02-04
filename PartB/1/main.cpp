@@ -28,7 +28,7 @@ int main(int argc, char *argv[]){
         string str = tmp.substr(0, tmp.find("_"));
 
         double bits = lang.calculateBits();
-        cout << "Number of bits needed (" << str << "): " << bits << endl;
+        cout << "Number of bits needed (" << str << "): " << bits << " per symbol" << endl;
     }
     else{
         cout << "ERROR!\nUsage ./lang [-k-] [-alpha-] [-reference text file path-] [-analysis text file path-]" << endl;

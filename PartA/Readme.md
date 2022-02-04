@@ -6,5 +6,9 @@ g++ main.cpp FiniteContextModel.cpp CircularBuffer.cpp -o fcm
 ```
 Run:
 ```bash
-./fcm [-k-] [-alpha-]
+./fcm [-k-] [-alpha-] [-text_path-]
+```
+- Example:
+```bash 
+./fcm 5 0.3 ../../Texts/Analysis_texts/Os_Maias.txt
 ```
