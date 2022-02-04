@@ -1,9 +1,11 @@
 #include "../../PartA/FiniteContextModel.h"
 #include "Lang.h"
 #include <fstream>
+#include <iostream>
 #include <map>
 #include <numeric>
 #include <math.h>
+#include <vector>
 
 /**
  * @brief Construct a new Lang:: Lang object
@@ -96,7 +98,7 @@ double Lang::calculateBits()
  */
 double Lang::calculateBits(int k,float alpha, std::map<std::string, std::map<char,int>> &ref_text, std::string filename)
 {
-    double bits, occurrance, prob;
+    double bits=0, occurrance=0, prob = 0;
     int res;
     char text_character;
     std::ifstream analysis_text;
@@ -149,23 +151,22 @@ double Lang::calculateBits(int k,float alpha, std::map<std::string, std::map<cha
         }
     }
     
+    analysis_text.close();
     // Retornar o número de bits por símbolo
     return (bits/27);
 }
 
-std::vector<std::map<std::string, std::map<char, int>>> Lang::loadRefTextModels(int k, float alpha, std::vector<std::string> ref_texts)
+void Lang::loadRefTextModels(int k, float alpha, std::vector<std::string> ref_texts, std::map<std::string, std::map<char,int>> ref_text_models[])
 {
-    std::vector<std::map<std::string, std::map<char, int>>> ref_text_models;
     std::map<std::string, std::map<char, int>> ref_text_map;
     std::cout << "Loading all reference text models into memory" << std::endl;
     for(int i=0; i<ref_texts.size(); i++)
     {
         FiniteContextModel ref = FiniteContextModel(k,alpha,ref_texts.at(i));
         ref_text_map = FiniteContextModel::getContextMap(ref);
-        ref_text_models.push_back(ref_text_map);
+        ref_text_models[i] = ref_text_map;
         std::cout << "Loaded " << ref_texts.at(i) << " model into memory" << std::endl;
     }
-    return ref_text_models;
 }
 
 std::map<std::string, std::map<char,int>> Lang::getRefTextModel(Lang &ref_text)
