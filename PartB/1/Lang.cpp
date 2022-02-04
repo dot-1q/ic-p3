@@ -160,6 +160,7 @@ void Lang::loadRefTextModels(int k, float alpha, std::vector<std::string> ref_te
 {
     std::map<std::string, std::map<char, int>> ref_text_map;
     std::cout << "Loading all reference text models into memory" << std::endl;
+    std::cout << "Please be patient, this may take a while! " << std::endl;
     for(int i=0; i<ref_texts.size(); i++)
     {
         FiniteContextModel ref = FiniteContextModel(k,alpha,ref_texts.at(i));

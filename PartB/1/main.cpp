@@ -6,9 +6,6 @@ using namespace std;
 
 int main(int argc, char *argv[]){
     
-    std::string ref_directory = "../../Texts/Ref_texts/";
-    std::string analysis_directory = "../../Texts/Analysis_texts/";
-
     if (argc == 5){
         // Conversion to int
         stringstream toInt(argv[1]);

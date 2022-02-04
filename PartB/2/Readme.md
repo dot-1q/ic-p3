@@ -6,12 +6,12 @@ g++ main.cpp Findlang.cpp ../../PartA/FiniteContextModel.cpp ../../PartA/Circula
 ```
 Run:
 ```bash
-./findlang [-k-] [-alpha-] [-analysis text file path-]
+./findlang [-k-] [-alpha-] 
 ```
 
 - Example:
 ```bash 
-./findlang 5 0.3 ../../Texts/Analysis_texts/Os_Maias.txt
+./findlang 5 0.3 
 ```
 
 Analysis Texts Directory Path:
