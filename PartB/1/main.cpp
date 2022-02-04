@@ -19,7 +19,7 @@ int main(int argc, char *argv[]){
 
         Lang lang  = Lang(k, alpha, argv[3], argv[4]);
 
-        // Conversion to float
+        // Conversion to string
         stringstream toString(argv[3]);
         string refText;
         toString >> refText;

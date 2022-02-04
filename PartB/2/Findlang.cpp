@@ -53,7 +53,9 @@ std::string Findlang::guessLanguage()
     std::cout << "--------------------------------------" << std::endl;
     // Process string
     std::string str = this->referece_texts.at(index); 
-    std::string tmp = str.substr(7, str.size());
+    // std::string tmp = str.substr(7, str.size());
+    // std::string lang = tmp.substr(0, tmp.find("_"));
+    std::string tmp = str.substr(22, str.size());
     std::string lang = tmp.substr(0, tmp.find("_"));
 
     return lang;
