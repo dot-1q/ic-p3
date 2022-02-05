@@ -1,4 +1,1 @@
-*.html linguist-detectable=false
-*.tex linguist-detectable=false
-*.js linguist-detectable=false
-*.css linguist-detectable=false
+Doxygen/** linguist-detectable=false
